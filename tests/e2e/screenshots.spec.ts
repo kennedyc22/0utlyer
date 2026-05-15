@@ -5,6 +5,8 @@ const targets = [
   { name: "home", url: "/" },
   { name: "design-system", url: "/design-system" },
   { name: "nonexistent", url: "/nonexistent-route" },
+  { name: "projects", url: "/projects" },
+  { name: "project-detail-dream-fever", url: "/projects/dream-fever" },
 ];
 
 const viewports = [

@@ -11,6 +11,28 @@ test("home renders with nav, footer, main, and 200 status", async ({
   await expect(page.locator("footer")).toBeVisible();
 });
 
+test("home renders mission, founders count = 4, featured = 3, contact anchor", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", {
+      level: 2,
+      name: /production company built for outlyers/i,
+    }),
+  ).toBeVisible();
+  await expect(page.locator("#mission")).toBeVisible();
+
+  const founderCards = page.locator("#founders article");
+  await expect(founderCards).toHaveCount(4);
+
+  const featuredCards = page.locator("[data-slug]");
+  await expect(featuredCards).toHaveCount(3);
+
+  await expect(page.locator("#contact")).toBeVisible();
+  await expect(page.locator('a[href^="mailto:"]').first()).toBeVisible();
+});
+
 test("skip-to-content link is the first focusable element", async ({
   page,
 }) => {

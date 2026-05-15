@@ -411,3 +411,161 @@
     display: block;
   }
 }
+
+/* Founders grid: 1-up sm, 2-up md, 4-up lg */
+.ol-founders-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 768px) {
+  .ol-founders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .ol-founders-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* Featured projects: 1-up sm, 3-up lg */
+.ol-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 1024px) {
+  .ol-featured-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* Projects index grid: 1-up sm, 2-up md, 3-up lg */
+.ol-projects-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 768px) {
+  .ol-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+@media (min-width: 1024px) {
+  .ol-projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Project detail hero — full bleed feel via aspect ratio shift */
+.ol-project-hero [data-aspect-ratio] {
+  aspect-ratio: 1 / 1;
+}
+@media (min-width: 768px) {
+  .ol-project-hero [data-aspect-ratio] {
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (min-width: 1024px) {
+  .ol-project-hero [data-aspect-ratio] {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Project detail description: max measure */
+.ol-project-description {
+  max-width: 65ch;
+  white-space: pre-wrap;
+  margin-bottom: var(--space-16) !important;
+}
+
+/* Credits block: stacked sm, two-column lg */
+.ol-credits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin: 0;
+}
+.ol-credits-grid .ol-credit {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+@media (min-width: 1024px) {
+  .ol-credits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-16);
+  }
+  .ol-credits-grid .ol-credit {
+    grid-template-columns: minmax(12ch, 0.4fr) 1fr;
+    column-gap: var(--space-6);
+    align-items: baseline;
+  }
+}
+
+/* Team broader grid: 1 / 2 / 3-up */
+.ol-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 768px) {
+  .ol-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+@media (min-width: 1024px) {
+  .ol-team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Partner logo wall: 2 / 3 / 4-up. Monochrome by default, restored on hover. */
+.ol-partner-wall {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+@media (min-width: 768px) {
+  .ol-partner-wall {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .ol-partner-wall {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.ol-partner-wall img {
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition:
+    filter var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+.ol-partner-wall a:hover img,
+.ol-partner-wall a:focus-visible img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Legacy article: drop cap on first paragraph */
+.ol-legacy-prose .ol-dropcap::first-letter {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 4em;
+  line-height: 0.85;
+  float: left;
+  padding-inline-end: var(--space-3);
+  padding-block-start: var(--space-1);
+  color: var(--color-accent);
+}
