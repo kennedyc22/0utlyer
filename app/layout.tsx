@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/globals.css";
+import { SkipLink } from "../components/layout/SkipLink";
+import { Nav } from "../components/layout/Nav";
+import { Footer } from "../components/layout/Footer";
 
 const bricolage = localFont({
   src: "../public/fonts/BricolageGrotesque-latin.woff2",
@@ -21,16 +24,33 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Outlyer",
-  description: "Outlyer Entertainment",
+  title: {
+    default: "Outlyer — Inclusive Film & TV Production",
+    template: "%s — Outlyer",
+  },
+  description:
+    "Outlyer Entertainment — a film and television production company with a powerful inclusion mission.",
+  openGraph: {
+    title: "Outlyer — Inclusive Film & TV Production",
+    description:
+      "A film and television production company with a powerful inclusion mission.",
+    type: "website",
+    siteName: "Outlyer",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${inter.variable}`}>
-      <body>{children}</body>
+    <html lang="en-GB" className={`${bricolage.variable} ${inter.variable}`}>
+      <body>
+        <SkipLink />
+        <Nav />
+        <main id="content">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

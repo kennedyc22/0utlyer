@@ -6,7 +6,7 @@ test.describe("/design-system", () => {
     page,
   }) => {
     await page.goto("/design-system");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
 
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])

@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>Outlyer — scaffold ready</main>;
+  return <div>Outlyer — scaffold ready</div>;
 }

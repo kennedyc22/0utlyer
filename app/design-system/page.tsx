@@ -92,13 +92,6 @@ const SWATCHES: Swatch[] = [
   },
 ];
 
-interface TypeRow {
-  label: string;
-  size: HeadingSize | "lead" | "body" | "small" | "meta";
-  varName: string;
-  sample: string;
-}
-
 const HEADING_SIZES: HeadingSize[] = ["display-1", "display-2", "display-3"];
 const TEXT_VARIANTS: TextVariant[] = ["lead", "body", "small", "meta"];
 const HEADING_TAGS: HeadingTag[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -151,7 +144,7 @@ const row: CSSProperties = {
 
 export default function DesignSystemPage() {
   return (
-    <main>
+    <div>
       <Section bg="paper" padding="lg">
         <Container>
           <div style={block}>
@@ -432,6 +425,6 @@ export default function DesignSystemPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }
