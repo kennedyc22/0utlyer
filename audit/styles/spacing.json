@@ -1,0 +1,50 @@
+{
+  "margins": [
+    {
+      "value": "0px",
+      "count": 50
+    },
+    {
+      "value": "4px",
+      "count": 10
+    },
+    {
+      "value": "0px 6px",
+      "count": 8
+    },
+    {
+      "value": "0px 0px 0px -94px",
+      "count": 5
+    },
+    {
+      "value": "0px 100px",
+      "count": 2
+    },
+    {
+      "value": "0px 0px 50px",
+      "count": 1
+    }
+  ],
+  "paddings": [
+    {
+      "value": "0px",
+      "count": 50
+    },
+    {
+      "value": "10px",
+      "count": 10
+    },
+    {
+      "value": "0px 16px",
+      "count": 8
+    },
+    {
+      "value": "0px 24px",
+      "count": 5
+    },
+    {
+      "value": "3px 3px 3px 10px",
+      "count": 3
+    }
+  ]
+}

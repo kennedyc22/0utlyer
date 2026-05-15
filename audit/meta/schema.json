@@ -1,0 +1,26 @@
+{
+  "home": [
+    {
+      "@context": "https://schema.org/",
+      "@type": "LocalBusiness",
+      "name": "OUTLYER",
+      "url": "https://www.0utlyer.com",
+      "image": "https://static.wixstatic.com/media/e4c834_86e9623516bd4ba68218431f5ccfed48~mv2.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB",
+        "addressLocality": "London",
+        "addressRegion": "ENG",
+        "postalCode": "WC1N 3AX",
+        "streetAddress": "27 Old Gloucester Street"
+      },
+      "telephone": "07548387592"
+    },
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "OUTLYER",
+      "url": "https://www.0utlyer.com"
+    }
+  ]
+}
