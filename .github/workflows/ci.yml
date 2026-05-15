@@ -10,6 +10,8 @@ jobs:
     name: lint / typecheck / test / build / e2e / lhci
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
       - uses: actions/checkout@v4
 
@@ -37,7 +39,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Playwright e2e
-        run: npm run test:e2e
+        run: npm run test:e2e:ci
 
       - name: Lighthouse CI
-        run: npm run lhci
+        run: npm run lhci:ci
