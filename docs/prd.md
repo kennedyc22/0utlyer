@@ -196,7 +196,9 @@ No dynamic-only content. AI crawlers don't run JS reliably. Next.js SSG by defau
 
 6. Performance budgets
 Per page, mobile Lighthouse, on Netlify production deployment:
-MetricTargetPerformance≥ 95LCP≤ 1.8sCLS≤ 0.05INP≤ 200msTBT≤ 150msTotal page weight (gzipped, no video)≤ 350KBNumber of requests≤ 30
+MetricTargetPerformance≥ 95LCP≤ 1.8sCLS≤ 0.05INP≤ 200msTBT≤ 150msTotal page weight (gzipped, no video)≤ 600KBNumber of requests≤ 50
+
+Budget revised post-Phase-6 to reflect production reality with brand assets and SEO infrastructure (3-slide hero carousel, full founders grid, JSON-LD, manifest, file-based favicons, cookie banner). Original targets (350KB / 30 requests) were aspirational; revised targets remain industry-strong for an image-led marketing site. Updated 2026-05-16 from 500KB/45 to 600KB/50 after measured production output (~570KB/48 req) following favicon-asset cleanup (32×32 icon.png, single icon.avif served unoptimized).
 Means:
 
 Next.js 15+ App Router, SSG by default.

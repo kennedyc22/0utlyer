@@ -5,7 +5,7 @@
 //   npm run gen:favicons
 //
 // Sharp is bundled with Next.js. Output:
-//   app/icon.png       — 256×256 (Next emits <link rel="icon">)
+//   app/icon.png       — 32×32  (Next emits <link rel="icon">)
 //   app/apple-icon.png — 180×180 (iOS home-screen touch icon)
 
 import sharp from "sharp";
@@ -47,7 +47,7 @@ async function generate(outPath: string, size: number) {
 }
 
 async function main() {
-  await generate(resolve(ROOT, "app", "icon.png"), 256);
+  await generate(resolve(ROOT, "app", "icon.png"), 32);
   await generate(resolve(ROOT, "app", "apple-icon.png"), 180);
 }
 

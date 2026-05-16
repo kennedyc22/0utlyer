@@ -45,6 +45,7 @@ export function HeroCarousel() {
             width={900}
             height={900}
             priority
+            unoptimized
           />
         </div>
         <div className="ol-slide-brand-copy ol-anim-in">

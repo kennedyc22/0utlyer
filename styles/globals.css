@@ -692,19 +692,30 @@
   z-index: 10;
 }
 .ol-carousel-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ol-carousel-dot::before {
+  content: "";
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.4);
-  border: none;
-  padding: 0;
-  cursor: pointer;
   transition: background var(--duration-fast) var(--ease-out);
 }
-.ol-carousel-dot:hover {
+.ol-carousel-dot:hover::before {
   background: rgba(255, 255, 255, 0.7);
 }
-.ol-carousel-dot[data-active] {
+.ol-carousel-dot[data-active]::before {
   background: var(--color-white);
 }
 

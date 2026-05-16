@@ -15,7 +15,7 @@ import {
 // shared buildMetadata() helper. metadataBase is mandatory for Next.js to
 // resolve relative og:image / twitter:image paths to absolute URLs.
 //
-// Icons are served by Next.js file-based convention: app/icon.png (256×256)
+// Icons are served by Next.js file-based convention: app/icon.png (32×32)
 // and app/apple-icon.png (180×180). Both are generated from public/icon.avif
 // by `npm run gen:favicons` (scripts/generate-favicons.ts). No `icons` block
 // needed in metadata — Next auto-injects the <link> tags.

@@ -42,7 +42,13 @@ export default function NotFound() {
     <Section bg="paper" padding="xl">
       <Container>
         <div style={wrapStyle}>
-          <NextImage src="/icon.avif" alt="" width={200} height={200} />
+          <NextImage
+            src="/icon.avif"
+            alt=""
+            width={200}
+            height={200}
+            unoptimized
+          />
           <h1 style={headingStyle}>
             This isn&apos;t the one you were looking for.
           </h1>

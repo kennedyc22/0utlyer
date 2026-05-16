@@ -10,7 +10,13 @@ export function ContactAnchor() {
       aria-label="Join our community"
     >
       <div className="ol-contact-ribbon" aria-hidden="true">
-        <NextImage src="/icon.avif" alt="" width={800} height={800} />
+        <NextImage
+          src="/icon.avif"
+          alt=""
+          width={800}
+          height={800}
+          unoptimized
+        />
       </div>
       <Container>
         <div className="ol-contact-inner">

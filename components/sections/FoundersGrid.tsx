@@ -19,7 +19,7 @@ function FounderCard({ founder }: { founder: Founder }) {
       <h3 className="ol-founder-name">{founder.name}</h3>
       <p className="ol-founder-role">{founder.role}</p>
       {hasBio ? (
-        <div className="ol-founder-overlay" aria-hidden="true">
+        <div className="ol-founder-overlay" inert>
           <p className="ol-founder-bio">{founder.bio}</p>
           <span className="ol-founder-overlay-name">{founder.name}</span>
           <a className="ol-founder-cta" href={`/team#${founder.slug}`}>
