@@ -7,6 +7,7 @@
     "prebuild": "tsx scripts/generate-llms-txt.ts",
     "build": "next build",
     "gen:llms": "tsx scripts/generate-llms-txt.ts",
+    "gen:favicons": "tsx scripts/generate-favicons.ts",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
