@@ -1,93 +1,56 @@
-import type { CSSProperties, ReactNode } from "react";
-import { Button } from "../primitives/Button";
+import NextImage from "next/image";
+import type { CSSProperties } from "react";
 import { Container } from "../primitives/Container";
-import { Heading } from "../primitives/Heading";
-import { Text } from "../primitives/Text";
 
 export interface HeroProps {
   heading: string;
   sub: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  /** Retained for API compatibility with prior call-sites; ignored in v2. */
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
   imageSrc?: string;
   imageAlt?: string;
-  children?: ReactNode;
 }
 
-const wrapperStyle: CSSProperties = {
-  position: "relative",
-  width: "100%",
-  minHeight: "min(82vh, 800px)",
-  display: "flex",
-  alignItems: "flex-end",
-  overflow: "hidden",
-  // TODO(asset): Replace with full-bleed hero image. v1 uses a 4% red tint
-  // on paper bg per Phase 4a spec.
-  background:
-    "linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 4%, var(--color-paper)) 0%, var(--color-paper) 100%)",
-  color: "var(--color-fg)",
-  paddingBlockStart: "var(--space-32)",
-  paddingBlockEnd: "var(--space-40)",
+const sectionStyle: CSSProperties = {
+  background: "var(--color-black)",
+  color: "var(--color-white)",
 };
 
-const contentStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "var(--space-6)",
-  maxWidth: "min(60ch, 100%)",
+const headingStyle: CSSProperties = {
+  fontFamily: "var(--font-display)",
+  fontSize: "clamp(1.5rem, 2.6vw, 2.25rem)",
+  fontWeight: 700,
+  lineHeight: 1.2,
+  letterSpacing: "var(--tracking-tight)",
+  color: "var(--color-white)",
+  margin: 0,
 };
 
-const ctaGroupStyle: CSSProperties = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "var(--space-4)",
-  marginTop: "var(--space-4)",
+const subStyle: CSSProperties = {
+  fontFamily: "var(--font-text)",
+  fontSize: "var(--text-lead)",
+  color: "var(--color-white)",
+  margin: 0,
 };
 
-export function Hero({
-  heading,
-  sub,
-  primaryCta,
-  secondaryCta,
-  imageSrc,
-  imageAlt,
-}: HeroProps) {
+export function Hero({ heading, sub }: HeroProps) {
   return (
-    <section
-      aria-label="Hero"
-      style={wrapperStyle}
-      data-hero-image={imageSrc ? "true" : "false"}
-    >
-      {/* TODO(asset): When imageSrc supplied, render full-bleed next/image
-          behind the content with overlay. v1 placeholder retains the tint. */}
-      {imageSrc ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={imageSrc}
-          alt={imageAlt ?? ""}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        />
-      ) : null}
+    <section aria-label="Hero" className="ol-hero" style={sectionStyle}>
       <Container>
-        <div style={{ ...contentStyle, position: "relative", zIndex: 1 }}>
-          <Heading as="h1" size="display-1">
-            {heading}
-          </Heading>
-          <Text variant="lead">{sub}</Text>
-          <div style={ctaGroupStyle}>
-            <Button as="a" href={primaryCta.href} variant="primary" size="lg">
-              {primaryCta.label}
-            </Button>
-            <Button as="a" href={secondaryCta.href} variant="ghost" size="lg">
-              {secondaryCta.label}
-            </Button>
+        <div className="ol-hero-inner">
+          <div className="ol-hero-lockup">
+            <NextImage
+              src="/logo.avif"
+              alt="OUTLYER"
+              width={1200}
+              height={500}
+              priority
+            />
+          </div>
+          <div className="ol-hero-copy">
+            <h1 style={headingStyle}>{heading}</h1>
+            <p style={subStyle}>{sub}</p>
           </div>
         </div>
       </Container>

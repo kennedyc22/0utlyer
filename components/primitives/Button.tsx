@@ -50,18 +50,19 @@ const SIZE_STYLES: Record<ButtonSize, CSSProperties> = {
 const VARIANT_STYLES: Record<ButtonVariant, CSSProperties> = {
   primary: {
     background: "var(--color-accent)",
-    color: "var(--color-paper)",
+    color: "var(--color-white)",
     border: "1px solid var(--color-accent)",
+    fontWeight: 700 as unknown as number,
   },
   secondary: {
-    background: "var(--color-ink)",
-    color: "var(--color-paper)",
-    border: "1px solid var(--color-ink)",
+    background: "var(--color-white)",
+    color: "var(--color-black)",
+    border: "1px solid var(--color-white)",
   },
   ghost: {
     background: "transparent",
-    color: "var(--color-fg)",
-    border: "var(--border-hairline)",
+    color: "var(--color-white)",
+    border: "1px solid var(--color-white)",
   },
 };
 

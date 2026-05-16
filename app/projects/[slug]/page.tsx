@@ -29,7 +29,7 @@ export async function generateMetadata({
     description: project.synopsis,
     alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
-      title: `${project.title} — Outlyer`,
+      title: `${project.title} | OUTLYER`,
       description: project.synopsis,
       url: `/projects/${project.slug}`,
       type: "article",
@@ -37,7 +37,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} — Outlyer`,
+      title: `${project.title} | OUTLYER`,
       description: project.synopsis,
       images: [project.ogImage],
     },

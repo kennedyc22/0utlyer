@@ -1,33 +1,28 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import NextImage from "next/image";
 
-const style: CSSProperties = {
-  display: "inline-flex",
-  alignItems: "baseline",
-  gap: "var(--space-2)",
-  fontFamily: "var(--font-display)",
-  fontWeight: "var(--weight-semibold)" as unknown as number,
-  letterSpacing: "var(--tracking-wider)",
-  color: "var(--color-fg)",
-  textDecoration: "none",
-  textTransform: "uppercase",
-  fontSize: "var(--text-body)",
-  lineHeight: "var(--leading-tight)",
-};
+export interface WordmarkProps {
+  href?: string;
+  /** Visual cap height in px; logo lockup scales to this height. */
+  height?: number;
+}
 
-const markStyle: CSSProperties = {
-  fontSize: "1.25em",
-  color: "var(--color-accent)",
-  lineHeight: 1,
-};
-
-export function Wordmark({ href = "/" }: { href?: string }) {
+// /public/logo.avif is the full OUTLYER ribbon lockup. We pass generous
+// intrinsic dimensions so next/image doesn't resample below the rendered
+// size, and rely on CSS (height + width: auto + object-fit: contain) to
+// preserve the real aspect ratio at the display size.
+export function Wordmark({ href = "/", height = 32 }: WordmarkProps) {
   return (
-    <Link href={href} aria-label="Outlyer home" style={style}>
-      <span aria-hidden="true" style={markStyle}>
-        Ø
-      </span>
-      <span>Outlyer</span>
+    <Link href={href} aria-label="Outlyer home" className="ol-wordmark">
+      <NextImage
+        src="/logo.avif"
+        alt="OUTLYER"
+        width={600}
+        height={240}
+        priority
+        className="ol-wordmark-img"
+        style={{ height: `${height}px` }}
+      />
     </Link>
   );
 }

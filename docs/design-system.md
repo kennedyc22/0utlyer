@@ -3,12 +3,7 @@ Version: 1.0
 Date: 15 May 2026
 
 1. Design principles
-Four rules that override everything else:
-
-Restraint over expression. The work is the work. Design retreats so the projects, founders, and mission lead.
-Editorial rhythm, not template grid. Asymmetry, deliberate negative space, varied vertical pacing. Never feels like a Squarespace.
-The red is a verb. #e30a17 is used to do something — punctuate, mark, separate — never to fill. If a block is red, it's because something needed marking.
-Cinematic, not corporate. Full-bleed imagery, generous type sizes at desktop, a black that's actually black. Closer to A24 / Element / See-Saw than to a SaaS marketing site.
+Replicate the original site. Black is the canvas. Red is the accent. The brand mark is the centrepiece. Type is a system sans-serif. Nothing more.
 
 2. Reference direction
 After reviewing the audit, the recommended aesthetic axis is:
@@ -21,49 +16,38 @@ see-saw-films.com — confident hero treatments, restrained palette
 
 The Outlyer twist: that aesthetic, but the red is the brand's signature mark in a way none of those references have. Outlyer's red is doing what See-Saw's gold does — punctuating, not dominating.
 3. Design tokens
-All tokens defined as CSS custom properties in styles/globals.css. Tailwind reads them via theme.extend. Never hardcode a hex, px, or ms anywhere in components.
+All tokens defined as CSS custom properties in styles/globals.css. Never hardcode a hex, px, or ms anywhere in components.
 3.1 Colour
 css:root {
   /* Brand */
   --color-outlyer-red: #e30a17;
   --color-outlyer-red-dark: #89070c;
-  --color-outlyer-red-soft: #f06d73;
 
-  /* Neutrals */
-  --color-ink: #0a0a0a;        /* near-black, body and headings */
-  --color-ink-muted: #4a4a4a;  /* secondary text */
-  --color-paper: #fafaf7;      /* off-white background */
-  --color-paper-warm: #f2efe8; /* tertiary surface */
-  --color-line: #1f1f1f;       /* hairlines on dark; rare */
-  --color-line-soft: #e5e3dc;  /* hairlines on light */
+  /* Core */
+  --color-black: #000000;        /* page bg */
+  --color-white: #ffffff;        /* primary fg */
+  --color-mute: #8a8a8a;         /* secondary text */
+  --color-surface: #0a0a0a;      /* differentiated surface */
+  --color-border: #1f1f1f;       /* hairlines */
+  --color-input: #2a2a2a;        /* form fields */
 
   /* Semantic */
-  --color-bg: var(--color-paper);
-  --color-fg: var(--color-ink);
-  --color-fg-muted: var(--color-ink-muted);
+  --color-bg: var(--color-black);
+  --color-fg: var(--color-white);
+  --color-fg-muted: var(--color-mute);
   --color-accent: var(--color-outlyer-red);
   --color-accent-dark: var(--color-outlyer-red-dark);
-  --color-surface: var(--color-paper-warm);
-  --color-border: var(--color-line-soft);
-
-  /* Focus */
   --color-focus-ring: var(--color-outlyer-red);
 }
-Colour roles, not just hex:
 
---color-bg — page background. Default paper.
---color-fg — primary text and UI.
---color-fg-muted — secondary copy, captions, meta.
---color-accent — the red. Used for: active nav state, link underlines on hover, mission-block typographic emphasis, error states, button primary, focus ring. Never for large fills.
---color-surface — slightly warmer neutral for cards or differentiated blocks.
---color-border — hairlines, dividers.
-
-No dark mode in v1. The brand's identity is the warm-paper-and-black palette plus the red. Dark mode would dilute that and is non-trivial to do well for an image-led site. Revisit in v2.
+There are three colours: black (the canvas), white (the foreground), red (the accent). Everything else is a tweak of those three.
 3.2 Typography
-Display face: Söhne Breit — not available free. Free equivalent for v1: Bricolage Grotesque (Google Fonts, OFL). Modern, slight character, holds up at 80px+. Use for headlines and the wordmark only.
-Text face: Söhne → free equivalent: Inter (variable, Google Fonts, OFL). Workhorse sans, excellent at small sizes, full UI character set.
-Both self-hosted via next/font/local, subsetted to Latin, font-display: swap. No Google Fonts CDN.
-If Dan later wants to license Söhne or another foundry face, the swap is a one-line next/font/local change.
+System sans-serif stack — no custom web font. The original site uses Arial / Helvetica via Wix's defaults; we mirror that with `Arial, Helvetica, sans-serif`. No next/font, no WOFF2 in /public, no Google Fonts CDN. If a custom face is licensed later, swap the two `--font-*` tokens in one place.
+
+css:root {
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-text: Arial, Helvetica, sans-serif;
+}
 Type scale (clamp-based, fluid between mobile and desktop):
 css:root {
   --font-display: 'Bricolage Grotesque', system-ui, sans-serif;

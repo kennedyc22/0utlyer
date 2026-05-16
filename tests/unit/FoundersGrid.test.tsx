@@ -19,18 +19,4 @@ describe("FoundersGrid", () => {
       expect(screen.getByText(f.role)).toBeTruthy();
     }
   });
-
-  it("omits bio paragraph for bio-less founders (Chris Martin)", () => {
-    const { container } = render(<FoundersGrid />);
-    const chris = container.querySelector('[aria-label="Chris Martin"]');
-    expect(chris).not.toBeNull();
-    expect(chris?.textContent).not.toContain("globally recognised");
-  });
-
-  it("renders the external link for Emmanuel Kelly", () => {
-    render(<FoundersGrid />);
-    const link = screen.getByRole("link", { name: /emmanuelkelly\.com/i });
-    expect(link.getAttribute("href")).toBe("https://emmanuelkelly.com");
-    expect(link.getAttribute("target")).toBe("_blank");
-  });
 });

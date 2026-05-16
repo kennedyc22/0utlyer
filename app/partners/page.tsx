@@ -1,51 +1,64 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
-import { Container } from "../../components/primitives/Container";
-import { Eyebrow } from "../../components/primitives/Eyebrow";
-import { Heading } from "../../components/primitives/Heading";
-import { Section } from "../../components/primitives/Section";
-import { Text } from "../../components/primitives/Text";
-import { PartnerLogoWall } from "../../components/sections/PartnerLogoWall";
 import { partners } from "../../content/partners";
 
 export const metadata: Metadata = {
-  title: "Partners",
+  title: "PARTNERS",
   description:
-    "Outlyer collaborates with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
+    "At OUTLYER, we collaborate with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
   alternates: { canonical: "/partners" },
   openGraph: {
-    title: "Partners — Outlyer",
+    title: "PARTNERS | OUTLYER",
     description:
-      "Outlyer collaborates with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
+      "At OUTLYER, we collaborate with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
     url: "/partners",
     type: "website",
   },
 };
 
-const headerStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "var(--space-6)",
-  marginBottom: "var(--space-16)",
-  maxWidth: "65ch",
-};
-
 export default function PartnersPage() {
   return (
-    <Section bg="paper" padding="xl">
-      <Container>
-        <header style={headerStyle}>
-          <Eyebrow>Partners</Eyebrow>
-          <Heading as="h1" size="display-1">
-            Partners.
-          </Heading>
-          <Text variant="lead">
+    <>
+      <section className="ol-partners-intro" aria-label="Partners overview">
+        <div className="ol-partners-intro-left">
+          <h1>
             At OUTLYER, we collaborate with best-in-class partners who share our
             mission to make film more inclusive — on and off camera.
-          </Text>
-        </header>
-        <PartnerLogoWall partners={partners} />
-      </Container>
-    </Section>
+          </h1>
+          <span className="ol-partners-intro-rule" aria-hidden="true" />
+        </div>
+        <div className="ol-partners-intro-right">
+          <p>
+            From world-leading studios and post houses to visionary brands and
+            social impact organisations, our partners are more than
+            collaborators &mdash; they&rsquo;re co-creators of a new industry
+            standard. Together, we&rsquo;re building a future where
+            accessibility, creativity, and excellence coexist seamlessly.
+          </p>
+          <p>
+            Each partnership is chosen with purpose: to amplify underrepresented
+            voices, pioneer sustainable production practices, and deliver
+            world-class storytelling that reaches and inspires global audiences.
+          </p>
+          <p>
+            Because when the right people come together, inclusion becomes
+            innovation.
+          </p>
+        </div>
+      </section>
+
+      <section className="ol-partners-grid-section" aria-label="Partners">
+        <ul className="ol-partners-grid" data-count={partners.length}>
+          {partners.map((p) => (
+            <li key={p.name} className="ol-partner-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.logo.src} alt={p.logo.alt} loading="lazy" />
+              <span className="ol-partner-card-title">
+                {p.name.toUpperCase()}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }

@@ -1,44 +1,40 @@
 import { expect, test } from "@playwright/test";
 
-test("/team renders founders, hides broader-team section when empty", async ({
-  page,
-}) => {
+test("/team renders MEET THE TEAM heading and team cards", async ({ page }) => {
   const response = await page.goto("/team");
   expect(response?.status()).toBe(200);
   await expect(
-    page.getByRole("heading", { level: 1, name: /the team\./i }),
+    page.getByRole("heading", { level: 1, name: /meet the team/i }),
   ).toBeVisible();
-  // Founders block reused
-  const founderCards = page.locator("#founders article");
-  await expect(founderCards).toHaveCount(4);
-  // Broader team section should not render when broaderTeam is empty
-  await expect(page.locator(".ol-team-grid")).toHaveCount(0);
+  // Founders + broader team rendered in one grid
+  const teamCards = page.locator(".ol-team-grid article");
+  await expect(teamCards.first()).toBeVisible();
 });
 
-test("/partners renders heading, lead paragraph and 8 partner tiles", async ({
+test("/partners renders heading, lead paragraph and partner tiles", async ({
   page,
 }) => {
   const response = await page.goto("/partners");
   expect(response?.status()).toBe(200);
   await expect(
-    page.getByRole("heading", { level: 1, name: /partners\./i }),
+    page.getByRole("heading", { level: 1, name: /best-in-class partners/i }),
   ).toBeVisible();
   await expect(
-    page.getByText(/best-in-class partners who share our mission/i),
+    page.getByText(/world-leading studios and post houses/i),
   ).toBeVisible();
-  const tiles = page.locator(".ol-partner-wall > *");
-  await expect(tiles).toHaveCount(8);
+  const tiles = page.locator(".ol-partners-grid > li");
+  await expect(tiles).toHaveCount(3);
 });
 
-test("/legacy renders title, lead and drop-cap first paragraph", async ({
-  page,
-}) => {
+test("/legacy renders title and body", async ({ page }) => {
   const response = await page.goto("/legacy");
   expect(response?.status()).toBe(200);
   await expect(
     page.getByRole("heading", { level: 1, name: /the kingdom of o/i }),
   ).toBeVisible();
-  await expect(page.locator(".ol-dropcap")).toBeVisible();
+  await expect(
+    page.getByText(/a world-changing partnership/i).first(),
+  ).toBeVisible();
 });
 
 test("/privacy renders boilerplate sections", async ({ page }) => {

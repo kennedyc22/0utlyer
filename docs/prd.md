@@ -333,6 +333,14 @@ All content sourced from /content/*.ts, not hardcoded.
 Page matches design-system rules (no off-token values).
 Responsive at 375 / 640 / 768 / 1024 / 1440.
 
+Phase 4-fix — Brand realignment (2026-05-15):
+
+Tokens rewired to a black-default canvas with the brand red as accent.
+Sections (Nav, Hero, Mission, Founders, Featured, Contact, Footer) composed to mirror the original 0utlyer.com layout per audit/screenshots/.
+logo.avif (baked ribbon Ø + wordmark + "ZERO BARRIERS / CONNECTING WORLDS") used directly as the hero lockup; no separate tagline element.
+Section primitive variants paper / paper-warm / ink retained for API compatibility but all map to the dark surface stack.
+docs/design-system.md §1 and §3 updated to anthemic-restraint direction; legacy paper/ink tokens kept as named aliases only.
+
 Phase 5 — Contact form:
 
 Form renders, validates, submits to Netlify.

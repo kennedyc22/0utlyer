@@ -1,25 +1,20 @@
+import NextImage from "next/image";
 import type { CSSProperties } from "react";
-import {
-  Section,
-  Container,
-  Heading,
-  Text,
-  Button,
-} from "../components/primitives";
+import { Section, Container, Button } from "../components/primitives";
 
 const wrapStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-start",
+  alignItems: "center",
   gap: "var(--space-6)",
-  maxWidth: "60ch",
+  textAlign: "center",
 };
 
-const markStyle: CSSProperties = {
+const headingStyle: CSSProperties = {
   fontFamily: "var(--font-display)",
-  fontSize: "var(--text-display-1)",
-  lineHeight: "var(--leading-tight)",
-  color: "var(--color-accent)",
+  fontSize: "var(--text-display-2)",
+  fontWeight: 700,
+  color: "var(--color-white)",
   margin: 0,
 };
 
@@ -28,15 +23,10 @@ export default function NotFound() {
     <Section bg="paper" padding="xl">
       <Container>
         <div style={wrapStyle}>
-          <p aria-hidden="true" style={markStyle}>
-            Ø
-          </p>
-          <Heading as="h1">
+          <NextImage src="/icon.avif" alt="" width={200} height={200} />
+          <h1 style={headingStyle}>
             This isn&apos;t the one you were looking for.
-          </Heading>
-          <Text variant="small" muted>
-            The page may have moved, or it never existed. Either way.
-          </Text>
+          </h1>
           <Button as="a" href="/" variant="primary">
             Back to home
           </Button>

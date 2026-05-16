@@ -8,7 +8,7 @@ const tileStyle: CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   aspectRatio: "3 / 2",
-  background: "var(--color-paper)",
+  background: "var(--color-surface)",
   border: "1px solid var(--color-border)",
   padding: "var(--space-6)",
 };

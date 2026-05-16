@@ -14,10 +14,10 @@ const wrapperStyle: CSSProperties = {
   fontFamily: "var(--font-text)",
   fontSize: "var(--text-meta)",
   lineHeight: "var(--leading-normal)",
-  letterSpacing: "var(--tracking-wide)",
-  fontWeight: "var(--weight-medium)" as unknown as number,
+  letterSpacing: "var(--tracking-wider)",
+  fontWeight: "var(--weight-bold)" as unknown as number,
   textTransform: "uppercase",
-  color: "var(--color-fg)",
+  color: "var(--color-accent)",
   margin: 0,
 };
 

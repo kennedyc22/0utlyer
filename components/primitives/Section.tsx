@@ -13,16 +13,19 @@ export interface SectionProps {
   as?: "section" | "div" | "article" | "header" | "footer";
 }
 
+// Phase 4 fix: the brand is dark. All Section variants now resolve to a
+// black-or-near-black surface with white foreground. The variant names are
+// retained for API compatibility (and the existing test matrix).
 const BG_TO_VAR: Record<SectionBg, string> = {
-  paper: "var(--color-paper)",
-  "paper-warm": "var(--color-paper-warm)",
-  ink: "var(--color-ink)",
+  paper: "var(--color-bg)",
+  "paper-warm": "var(--color-surface)",
+  ink: "var(--color-black)",
 };
 
 const FG_FOR_BG: Record<SectionBg, string> = {
   paper: "var(--color-fg)",
   "paper-warm": "var(--color-fg)",
-  ink: "var(--color-paper)",
+  ink: "var(--color-fg)",
 };
 
 const PADDING_TO_VAR: Record<SectionPadding, string> = {

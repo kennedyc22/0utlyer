@@ -40,13 +40,19 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# audit harness state (regeneratable, occasionally large)
-/audit/_state/
+# audit harness — research artefacts, not part of the deployed site
+/audit/
 
 # playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
+# Playwright visual fixtures (regenerated locally; not needed at deploy time)
+/tests/screenshots/
 
 # lighthouse ci
 /.lighthouseci/
+
+# Windows attachment metadata (created when files are copied from the web/email)
+*:Zone.Identifier
+**/Zone.Identifier

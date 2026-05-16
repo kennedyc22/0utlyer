@@ -1,14 +1,14 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("/projects renders 10 project cards", async ({ page }) => {
+test("/projects renders 9 project cards", async ({ page }) => {
   const response = await page.goto("/projects");
   expect(response?.status()).toBe(200);
   await expect(
-    page.getByRole("heading", { level: 1, name: /projects\./i }),
+    page.getByRole("heading", { level: 1, name: /^projects$/i }),
   ).toBeVisible();
   const cards = page.locator("[data-slug]");
-  await expect(cards).toHaveCount(10);
+  await expect(cards).toHaveCount(9);
 });
 
 test("/projects card click navigates to detail page with required sections", async ({

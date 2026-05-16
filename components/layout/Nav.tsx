@@ -2,65 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { Wordmark } from "./Wordmark";
 import { navLinks } from "./nav-links";
-
-const innerStyle: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  paddingBlock: "var(--space-4)",
-  gap: "var(--space-6)",
-};
-
-const listStyle: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  gap: "var(--space-6)",
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-};
-
-const iconButtonStyle: CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "var(--space-8)",
-  height: "var(--space-8)",
-  background: "transparent",
-  border: "none",
-  color: "var(--color-fg)",
-  cursor: "pointer",
-  borderRadius: "var(--radius-md)",
-};
-
-const sheetListStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "var(--space-6)",
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-  marginTop: "var(--space-12)",
-};
-
-const sheetLinkStyle: CSSProperties = {
-  fontFamily: "var(--font-display)",
-  fontSize: "var(--text-display-3)",
-  letterSpacing: "var(--tracking-tight)",
-  color: "var(--color-fg)",
-  textDecoration: "none",
-};
-
-const sheetHeaderStyle: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-};
 
 function isActive(pathname: string, href: string) {
   if (href.startsWith("/#")) return false;
@@ -70,17 +16,9 @@ function isActive(pathname: string, href: string) {
 
 export function Nav() {
   const pathname = usePathname() ?? "/";
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -126,15 +64,11 @@ export function Nav() {
   }, [open]);
 
   return (
-    <nav
-      className="ol-nav"
-      data-scrolled={scrolled || undefined}
-      aria-label="Primary"
-    >
+    <nav className="ol-nav" aria-label="Primary">
       <Container>
-        <div style={innerStyle}>
-          <Wordmark />
-          <ul style={listStyle} className="ol-nav-desktop">
+        <div className="ol-nav-inner">
+          <Wordmark height={32} />
+          <ul className="ol-nav-desktop">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <Link
@@ -151,7 +85,6 @@ export function Nav() {
             ref={triggerRef}
             type="button"
             className="ol-nav-trigger"
-            style={iconButtonStyle}
             aria-label="Open menu"
             aria-expanded={open}
             aria-controls="ol-nav-sheet"
@@ -172,23 +105,23 @@ export function Nav() {
         aria-label="Site navigation"
         inert={!open}
       >
-        <div style={sheetHeaderStyle}>
-          <Wordmark />
+        <div className="ol-nav-sheet-header">
+          <Wordmark height={32} />
           <button
             type="button"
-            style={iconButtonStyle}
+            className="ol-nav-trigger"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
           >
             <X size={24} strokeWidth={1.5} aria-hidden="true" />
           </button>
         </div>
-        <ul style={sheetListStyle}>
+        <ul className="ol-nav-sheet-list">
           {navLinks.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                style={sheetLinkStyle}
+                className="ol-nav-link"
                 aria-current={isActive(pathname, l.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
               >
