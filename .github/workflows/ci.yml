@@ -38,8 +38,19 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Playwright e2e
+      - name: Playwright e2e (includes a11y-strict, keyboard-nav, reduced-motion, colour-deficiency, form-integrity, schema-validation, link-integrity, visual regression)
         run: npm run test:e2e:ci
+
+      - name: Upload QA artefacts (a11y reports, colour-deficiency screenshots, focus states, schema dumps, link report)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-reports
+          path: |
+            tests/reports/**
+            tests/visual/__snapshots__/**
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Lighthouse CI
         run: npm run lhci:ci

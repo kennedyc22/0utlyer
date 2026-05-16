@@ -1330,6 +1330,12 @@
   font-size: var(--text-meta);
   color: var(--color-white);
 }
+.ol-required-text {
+  font-size: 0.85em;
+  color: var(--color-fg-muted, currentColor);
+  opacity: 0.75;
+  font-weight: 400;
+}
 .ol-field input,
 .ol-field textarea {
   background: var(--color-input);

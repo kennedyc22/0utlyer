@@ -221,6 +221,23 @@ Form errors announced via aria-live="polite".
 Prefers-reduced-motion respected for all animations.
 Skip-to-content link as the first focusable element.
 
+7.1 Automated QA suite (Phase 7-final, 2026-05-16)
+Coverage in tests/ split as follows:
+
+- tests/e2e/a11y-strict.spec.ts — full WCAG 2.0 A/AA, 2.1 A/AA, 2.2 AA + best-practice rules at 375 and 1440; serious/critical fail; moderate/minor logged to tests/reports/a11y-<date>.json. Targeted assertions: one <h1> per page, every form field labelled, every <img> has alt, skip-to-content is the first focusable element, focus state captured per tab stop to tests/reports/focus-states/.
+- tests/e2e/keyboard-nav.spec.ts — full tab walk on home: in-viewport check, focus-indicator detection, mobile nav sheet open/close via keyboard, contact form keyboard-operable end to end.
+- tests/e2e/reduced-motion.spec.ts — emulates prefers-reduced-motion and asserts no transition or animation exceeds 100ms on /, /projects, /team.
+- tests/e2e/colour-deficiency.spec.ts — captures full-page screenshots under Chromium's achromatopsia / deuteranopia / protanopia / tritanopia / blurredVision emulation. Artefacts only; for human review on the launch checklist.
+- tests/e2e/form-integrity.spec.ts — Netlify form is server-rendered with data-netlify and form-name=contact; honeypot wrapper is hidden; every visible input carries an autocomplete attribute; required fields are marked "(required)" in label text; HTML5 validation refuses an empty submission and rejects malformed email.
+- tests/e2e/schema-validation.spec.ts — parses every <script type="application/ld+json"> on every route, asserts @context/@type are valid, asserts expected @type set per PRD §5, persists every block to tests/reports/schema/<route>.json for cross-check against https://validator.schema.org.
+- tests/e2e/link-integrity.spec.ts — crawls every canonical route; asserts every internal link returns 200; HEAD-probes external links (warns on 4xx/5xx, never fails); report at tests/reports/links.json.
+- tests/visual/visual.spec.ts — visual regression baselines at 375 and 1440 for /, /projects, /projects/<first>, /team, /partners, /legacy, /404. Baselines committed under tests/visual/__snapshots__/; CI fails on diff. Intentional changes land via `npm run test:visual:update`.
+- lib/seo/schema.types.ts — compile-time validation of the JSON-LD generators against schema-dts (Schema.org typed). Typecheck failure surfaces drift from the spec.
+
+All of the above run inside the existing Playwright job in .github/workflows/ci.yml. Reports are uploaded as the qa-reports workflow artefact for 14 days.
+
+The corresponding manual passes — VoiceOver, NVDA/TalkBack, WebPageTest, content sign-off, vision-deficiency artefact review, etc. — are tracked in docs/launch-checklist.md.
+
 8. Tech stack
 LayerChoiceNotesFrameworkNext.js 15+ App RouterSSG, server componentsLanguageTypeScript strictStylingTailwind CSS v4 + CSS variablesDesign tokens as CSS varsComponentsNone (no shadcn, no UI library)Build from scratch on Tailwind primitivesContentTypeScript data files (/content/*.ts) + MDX for /legacyNo CMS in v1FormsNetlify FormsImagesnext/image, AVIF + WebPFontsSelf-hosted via next/font/localTBD in design systemIconsLucide React (tree-shaken)HostingNetlifyDomain0utlyer.com (existing)DNS migration plan in §10CIGitHub ActionsBuild, test, Lighthouse CITestingVitest (unit) + Playwright (e2e)LintingESLint, PrettierStrictGit hooksHusky + lint-stagedPre-commitAnalyticsNone in v1Plausible recommended for v2
 9. Repository structure

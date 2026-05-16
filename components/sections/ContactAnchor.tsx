@@ -37,7 +37,10 @@ export function ContactAnchor() {
             </p>
             <div className="ol-form-row">
               <div className="ol-field">
-                <label htmlFor="contact-firstName">First Name *</label>
+                <label htmlFor="contact-firstName">
+                  First Name <span aria-hidden="true">*</span>{" "}
+                  <span className="ol-required-text">(required)</span>
+                </label>
                 <input
                   id="contact-firstName"
                   name="firstName"
@@ -47,7 +50,10 @@ export function ContactAnchor() {
                 />
               </div>
               <div className="ol-field">
-                <label htmlFor="contact-lastName">Last Name *</label>
+                <label htmlFor="contact-lastName">
+                  Last Name <span aria-hidden="true">*</span>{" "}
+                  <span className="ol-required-text">(required)</span>
+                </label>
                 <input
                   id="contact-lastName"
                   name="lastName"
@@ -58,7 +64,10 @@ export function ContactAnchor() {
               </div>
             </div>
             <div className="ol-field">
-              <label htmlFor="contact-email">Email *</label>
+              <label htmlFor="contact-email">
+                Email <span aria-hidden="true">*</span>{" "}
+                <span className="ol-required-text">(required)</span>
+              </label>
               <input
                 id="contact-email"
                 name="email"
@@ -69,7 +78,12 @@ export function ContactAnchor() {
             </div>
             <div className="ol-field">
               <label htmlFor="contact-message">Message</label>
-              <textarea id="contact-message" name="message" rows={4} />
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={4}
+                autoComplete="off"
+              />
             </div>
             <Button type="submit" variant="primary" size="lg">
               SEND

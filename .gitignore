@@ -49,6 +49,10 @@ next-env.d.ts
 /playwright/.cache/
 # Playwright visual fixtures (regenerated locally; not needed at deploy time)
 /tests/screenshots/
+# QA artefacts produced by Phase 7-final spec runs (a11y reports, focus
+# states, colour-deficiency screenshots, schema dumps, link reports). These
+# are regenerated each CI run and uploaded as workflow artefacts.
+/tests/reports/
 
 # lighthouse ci
 /.lighthouseci/

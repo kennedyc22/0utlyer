@@ -15,9 +15,14 @@ import {
 import type { Founder } from "../../content/founders";
 import type { Project } from "../../content/projects";
 
+// Compile-time validation of these generators against the Schema.org spec
+// lives in ./schema.types.ts (uses schema-dts). Keeping the runtime return
+// shape as a loose JsonLdNode preserves backwards compatibility with the
+// <JsonLd /> component while the typed shadows in schema.types.ts catch
+// any drift.
 type JsonLdNode = Record<string, unknown> & { "@context"?: string };
 
-const CONTEXT = "https://schema.org";
+const CONTEXT = "https://schema.org" as const;
 
 function absolute(pathOrUrl: string): string {
   if (/^https?:\/\//.test(pathOrUrl)) return pathOrUrl;
