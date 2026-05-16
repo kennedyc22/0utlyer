@@ -23,6 +23,12 @@ export const DEFAULT_OG_IMAGE = "/opengraph-image";
 // omitted (per Phase 6 spec). Set to '@handle' once available.
 export const TWITTER_HANDLE: string | null = null;
 
+// Public-facing brand profiles. Flows into Organization.sameAs (JSON-LD) for
+// entity disambiguation in search + GEO surfaces.
+export const SOCIAL_PROFILES: string[] = [
+  "https://www.instagram.com/outlyerofficial/",
+];
+
 // Locale used across OG + JSON-LD inLanguage fields. UK-based company.
 export const SITE_LOCALE = "en_GB";
 export const SITE_LANGUAGE = "en-GB";

@@ -183,8 +183,14 @@ test("seo: /manifest.webmanifest served as JSON with name OUTLYER", async ({
 
 test("seo: 404 page is noindex", async ({ page }) => {
   await page.goto("/nonexistent-route");
-  const robots = await page
+  // Next.js can emit multiple meta[name="robots"] when both the layout default
+  // and the page-level override are present — assert that *some* tag carries
+  // noindex rather than relying on a single match.
+  const robotsTags = await page
     .locator('meta[name="robots"]')
-    .getAttribute("content");
-  expect(robots ?? "").toMatch(/noindex/);
+    .evaluateAll((els) =>
+      (els as HTMLMetaElement[]).map((m) => m.getAttribute("content") ?? ""),
+    );
+  expect(robotsTags.length).toBeGreaterThan(0);
+  expect(robotsTags.some((c) => /noindex/.test(c))).toBe(true);
 });

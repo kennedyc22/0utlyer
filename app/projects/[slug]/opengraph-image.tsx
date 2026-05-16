@@ -1,38 +1,25 @@
 import { ImageResponse } from "next/og";
 import { getProjectBySlug, projects } from "../../../content/projects";
 
-export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "OUTLYER project";
-
-export function generateImageMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const project = getProjectBySlug(params.slug);
-  return [
-    {
-      id: "card",
-      alt: project ? `${project.title} — OUTLYER` : "OUTLYER project",
-      contentType,
-      size,
-    },
-  ];
-}
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-// Per-project OG: dark gradient with project title + status overlay. The hero
-// asset itself is not composited because next/og requires absolute URLs for
-// remote images and bundling local AVIFs into the edge function isn't worth
-// the extra complexity — the title card is information-dense enough on its
-// own and reads cleanly when shared.
-export default async function Image({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
+// Per-project OG: dark gradient with project title + status overlay. Hero
+// AVIF is intentionally not composited — next/og bundling a binary at the
+// edge isn't worth the complexity for a title card that reads cleanly on its
+// own when shared.
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   const title = project?.title ?? "OUTLYER";
   const synopsis = project?.synopsis ?? "";
   const status = project?.status ?? "";

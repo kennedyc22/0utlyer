@@ -38,22 +38,29 @@ All routes carry `og:title`, `og:description`, `og:url`, `og:site_name`, `og:loc
 
 ## Decisions made (for the record)
 
-1. **Favicons** — kept the existing `/app/favicon.ico` + `/public/icon.avif`. `favicon.svg`, `favicon.png 32x32`, and `apple-icon.png` are flagged `TODO(asset)` in `app/layout.tsx`.
-2. **Organization address/telephone** — omitted. The Wix LocalBusiness schema captured 27 Old Gloucester St, London WC1N 3AX + tel 07548387592, but Dan to confirm currency. Flagged `TODO(seo)` in `lib/seo/schema.ts`.
-3. **Sitemap approach** — native `app/sitemap.ts` (supersedes PRD §4's `next-sitemap` reference).
-4. **Movie vs TVSeries** — every project schema-typed as `Movie`. `TODO(content)` in `lib/seo/schema.ts` to add an optional `format` field on `Project` once Dan classifies each.
-5. **llms-full.txt pattern** — explicitly rejected (duplicate-content risk on a small site). One curated llms.txt at root.
-6. **AI crawlers** — explicit allow rules for GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Google-Extended, CCBot, Applebot-Extended.
+1. **Favicons** — generated dynamically via Next.js file-based icon convention:
+   `app/icon.tsx` (64×64) and `app/apple-icon.tsx` (180×180) render the Ø
+   brand mark on black at build time. `/app/favicon.ico` remains for legacy
+   browsers. No PNG/SVG assets need to be shipped.
+2. **Organization address/telephone** — omitted (Dan, 2026-05-16). Not coming
+   back unless a public business address is restored later.
+3. **Lauren Hutton** — kept out of founders per Dan (2026-05-16). PRD §2.1
+   reference is stale; founders array stands at Emmanuel, Joanne, Chris Martin.
+4. **Socials** — Instagram (`@outlyerofficial`) is the only public profile.
+   Listed in `lib/seo/constants.ts` `SOCIAL_PROFILES` and flows into
+   `Organization.sameAs` JSON-LD.
+5. **Sitemap approach** — native `app/sitemap.ts` (supersedes PRD §4's `next-sitemap` reference).
+6. **Movie vs TVSeries** — every project schema-typed as `Movie`. `TODO(content)` in `lib/seo/schema.ts` to add an optional `format` field on `Project` once Dan classifies each.
+7. **llms-full.txt pattern** — explicitly rejected (duplicate-content risk on a small site). One curated llms.txt at root.
+8. **AI crawlers** — explicit allow rules for GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Google-Extended, CCBot, Applebot-Extended.
 
 ## TODOs left for Dan before launch
 
-- `TODO(asset)` `app/layout.tsx` — supply `favicon.svg`, `favicon.png` (32×32), `apple-icon.png` (180×180); add the icon entries back.
-- `TODO(asset)` `app/manifest.ts` — supply PNG icon fallbacks (192×192, 512×512); replace AVIF-only entry.
-- `TODO(seo)` `lib/seo/schema.ts` — populate `Organization.sameAs` (IMDb, Wikipedia, Companies House, social), `foundingDate`, and add `address` / `telephone` once confirmed.
 - `TODO(asset)` `lib/seo/schema.ts` — replace placeholder logo width/height with real intrinsic dimensions of `/public/logo.avif`.
 - `TODO(content)` `content/projects.ts` — add optional `format: 'film' | 'series' | 'interactive'` per project so the schema generator can emit `TVSeries` / `CreativeWork` as appropriate.
 - `TODO(seo)` `app/legacy/page.tsx` — confirm `datePublished` for the Legacy article (placeholder 2025-02-01 from the Cambridge symposium would be plausible).
-- `TODO(content)` Lauren Hutton: PRD §2.1 names Lauren as CCO & Founding Partner but `content/founders.ts` only has 3 founders (Emmanuel, Joanne, Chris). Confirm intent — either add Lauren to founders or update PRD.
+- `TODO(seo)` `lib/seo/constants.ts` — Twitter/X handle (currently `null`); extend `SOCIAL_PROFILES` if Dan adds IMDb / Wikipedia / Companies House links.
+- `TODO(seo)` `lib/seo/schema.ts` — `foundingDate` ISO YYYY-MM-DD on Organization once confirmed.
 
 ## Acceptance criteria mapping (PRD §12 Phase 6)
 

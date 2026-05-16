@@ -15,11 +15,9 @@ import {
 // shared buildMetadata() helper. metadataBase is mandatory for Next.js to
 // resolve relative og:image / twitter:image paths to absolute URLs.
 //
-// TODO(asset): favicon.svg, favicon.png 32x32, apple-icon.png 180x180 are not
-// in /public yet — only /app/favicon.ico (auto-served by Next.js convention)
-// and /public/icon.avif exist. Once Dan supplies the SVG + PNG variants, add
-// `icon` entries below for { '/favicon.svg', type: 'image/svg+xml' } and
-// { '/favicon.png', sizes: '32x32' }, and `apple: '/apple-icon.png'`.
+// Icons are served by Next.js file-based convention: app/favicon.ico (legacy
+// browsers), app/icon.tsx (modern <link rel="icon">) and app/apple-icon.tsx
+// (iOS) — so no `icons` block is needed here.
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

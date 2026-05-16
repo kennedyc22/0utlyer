@@ -9,6 +9,7 @@ import {
   SITE_LANGUAGE,
   SITE_NAME,
   SITE_URL,
+  SOCIAL_PROFILES,
   WEBSITE_ID,
 } from "./constants";
 import type { Founder } from "../../content/founders";
@@ -28,11 +29,12 @@ function personId(slug: string): string {
 }
 
 // Organization. Singular site-wide entity. Other nodes reference it by @id.
-// TODO(seo): once Dan supplies sameAs URLs (IMDb company page, Wikipedia,
-// Companies House, social), foundingDate, and the official postal address /
-// telephone (audit/meta/schema.json shows the live Wix site exposed 27 Old
-// Gloucester St, London WC1N 3AX, tel 07548387592), populate the relevant
-// fields below and remove the TODO.
+// Postal address and telephone deliberately omitted (Dan, 2026-05-16). If a
+// public business address is restored later, add `address` (PostalAddress)
+// and `telephone` here.
+// TODO(seo): foundingDate ISO YYYY-MM-DD once confirmed. Extend
+// constants.SOCIAL_PROFILES as more channels are added (IMDb company page,
+// Wikipedia, Companies House) — they flow straight into sameAs.
 export function buildOrganization(founders: Founder[]): JsonLdNode {
   return {
     "@context": CONTEXT,
@@ -51,10 +53,7 @@ export function buildOrganization(founders: Founder[]): JsonLdNode {
     },
     description: BRAND_DESCRIPTION,
     founder: founders.map((f) => ({ "@id": personId(f.slug) })),
-    // TODO(seo): populate when Dan supplies external profile links (IMDb,
-    // Wikipedia, Companies House, social handles).
-    sameAs: [],
-    // TODO(seo): foundingDate ISO YYYY-MM-DD once confirmed.
+    sameAs: SOCIAL_PROFILES,
     knowsAbout: [
       "inclusive film production",
       "differently-abled talent",

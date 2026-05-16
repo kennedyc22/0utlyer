@@ -8,7 +8,7 @@ test("home renders with nav, footer, main, and 200 status", async ({
   expect(response?.status()).toBe(200);
   await expect(page.locator("main#content")).toBeVisible();
   await expect(page.locator('nav[aria-label="Primary"]')).toBeVisible();
-  await expect(page.locator("footer")).toBeVisible();
+  await expect(page.locator("footer.ol-footer")).toBeVisible();
 });
 
 test("home renders mission, founders count = 4, contact anchor", async ({

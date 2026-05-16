@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE_NAME, SITE_TAGLINE } from "../lib/seo/constants";
 
-// Phase 6: PWA manifest. AVIF in manifest icons is broadly supported by 2026
-// browsers but not universally — TODO(asset) for Dan to add PNG fallbacks
-// (192x192 + 512x512) once available.
+// Phase 6: PWA manifest. Icons point at the file-based generators in
+// app/icon.tsx (64×64) and app/apple-icon.tsx (180×180); the AVIF source in
+// /public/icon.avif is offered as a vector-ish "any size" fallback.
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE_NAME,
@@ -13,6 +13,10 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#000000",
     theme_color: "#000000",
-    icons: [{ src: "/icon.avif", sizes: "any", type: "image/avif" }],
+    icons: [
+      { src: "/icon", sizes: "64x64", type: "image/png" },
+      { src: "/apple-icon", sizes: "180x180", type: "image/png" },
+      { src: "/icon.avif", sizes: "any", type: "image/avif" },
+    ],
   };
 }
