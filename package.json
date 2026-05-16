@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/generate-llms-txt.ts",
     "build": "next build",
+    "gen:llms": "tsx scripts/generate-llms-txt.ts",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -42,6 +44,7 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "start-server-and-test": "^3.0.5",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5",
     "vitest": "^4.1.6"
   },

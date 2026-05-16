@@ -26,6 +26,10 @@
   --color-fg-muted: var(--color-mute);
   --color-accent: var(--color-outlyer-red);
   --color-accent-dark: var(--color-outlyer-red-dark);
+  /* Slightly brighter red used wherever red TEXT sits on a dark surface,
+     so we clear WCAG AA 4.5:1. The brand red is too close to black (4.32:1)
+     for small text. Fills still use --color-accent. */
+  --color-accent-text: #ff3344;
   --color-focus-ring: var(--color-outlyer-red);
 
   /* Type — Arial/Helvetica system stack, mirroring the source. */
@@ -132,6 +136,7 @@
   --color-fg-muted: var(--color-fg-muted);
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
+  --color-accent-text: var(--color-accent-text);
   --color-focus-ring: var(--color-focus-ring);
 
   --font-display: var(--font-display);
@@ -284,7 +289,7 @@
 .ol-nav-link:hover,
 .ol-nav-link:focus-visible,
 .ol-nav-link[aria-current="page"] {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* Mobile-first: hide desktop list, show hamburger. */
@@ -1285,7 +1290,7 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-align: center;
   margin: 0 0 var(--space-8);
 }
@@ -1340,7 +1345,7 @@
 
 /* Page heading helper — red, uppercase, centred — used by Projects/Team/Partners/Legacy */
 .ol-page-title {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;

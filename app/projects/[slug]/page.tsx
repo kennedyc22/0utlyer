@@ -8,6 +8,9 @@ import { Heading } from "../../../components/primitives/Heading";
 import { Image } from "../../../components/primitives/Image";
 import { Section } from "../../../components/primitives/Section";
 import { Text } from "../../../components/primitives/Text";
+import { JsonLd } from "../../../components/seo/JsonLd";
+import { buildMetadata } from "../../../lib/seo/build-metadata";
+import { buildBreadcrumb, buildMovie } from "../../../lib/seo/schema";
 import { getProjectBySlug, projects } from "../../../content/projects";
 
 export function generateStaticParams() {
@@ -24,24 +27,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
-  return {
+  return buildMetadata({
     title: project.title,
     description: project.synopsis,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      title: `${project.title} | OUTLYER`,
-      description: project.synopsis,
-      url: `/projects/${project.slug}`,
-      type: "article",
-      images: [{ url: project.ogImage, width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} | OUTLYER`,
-      description: project.synopsis,
-      images: [project.ogImage],
-    },
-  };
+    path: `/projects/${project.slug}`,
+    image: project.ogImage,
+    type: "article",
+  });
 }
 
 const backLinkStyle: CSSProperties = {
@@ -88,6 +80,14 @@ export default async function ProjectDetailPage({
 
   return (
     <Section bg="paper" padding="xl">
+      <JsonLd data={buildMovie(project)} />
+      <JsonLd
+        data={buildBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: project.title, path: `/projects/${project.slug}` },
+        ])}
+      />
       <Container>
         <NextLink
           href="/projects"

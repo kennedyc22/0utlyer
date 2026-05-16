@@ -5,13 +5,19 @@ import { Eyebrow } from "../../components/primitives/Eyebrow";
 import { Heading } from "../../components/primitives/Heading";
 import { Section } from "../../components/primitives/Section";
 import { Text } from "../../components/primitives/Text";
+import { JsonLd } from "../../components/seo/JsonLd";
+import { buildMetadata } from "../../lib/seo/build-metadata";
+import { buildBreadcrumb, buildWebPage } from "../../lib/seo/schema";
 import { privacyBlocks, privacyFrontmatter } from "../../content/privacy";
 
-export const metadata: Metadata = {
-  title: privacyFrontmatter.title,
-  description: privacyFrontmatter.lead,
-  alternates: { canonical: "/privacy" },
-};
+const PRIVACY_DESCRIPTION =
+  "How OUTLYER handles your data. UK GDPR-compliant privacy notice covering collection, use, retention, and your rights.";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Privacy",
+  description: PRIVACY_DESCRIPTION,
+  path: "/privacy",
+});
 
 const headerStyle: CSSProperties = {
   display: "flex",
@@ -41,6 +47,19 @@ const ulStyle: CSSProperties = {
 export default function PrivacyPage() {
   return (
     <Section bg="paper" padding="xl" as="article">
+      <JsonLd
+        data={buildWebPage({
+          name: privacyFrontmatter.title,
+          description: PRIVACY_DESCRIPTION,
+          path: "/privacy",
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Privacy", path: "/privacy" },
+        ])}
+      />
       <Container variant="narrow">
         <header style={headerStyle}>
           <Eyebrow>{privacyFrontmatter.eyebrow}</Eyebrow>

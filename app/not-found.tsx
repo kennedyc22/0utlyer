@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 import NextImage from "next/image";
+import NextLink from "next/link";
 import type { CSSProperties } from "react";
 import { Section, Container, Button } from "../components/primitives";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "The page you were looking for could not be found.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
+  },
+};
 
 const wrapStyle: CSSProperties = {
   display: "flex",
@@ -18,6 +30,13 @@ const headingStyle: CSSProperties = {
   margin: 0,
 };
 
+const linkRowStyle: CSSProperties = {
+  display: "flex",
+  gap: "var(--space-4)",
+  flexWrap: "wrap",
+  justifyContent: "center",
+};
+
 export default function NotFound() {
   return (
     <Section bg="paper" padding="xl">
@@ -27,9 +46,14 @@ export default function NotFound() {
           <h1 style={headingStyle}>
             This isn&apos;t the one you were looking for.
           </h1>
-          <Button as="a" href="/" variant="primary">
-            Back to home
-          </Button>
+          <div style={linkRowStyle}>
+            <Button as="a" href="/" variant="primary">
+              Back to home
+            </Button>
+            <NextLink href="/projects" className="ol-link-underline">
+              View projects
+            </NextLink>
+          </div>
         </div>
       </Container>
     </Section>

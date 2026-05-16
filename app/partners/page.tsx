@@ -1,23 +1,34 @@
 import type { Metadata } from "next";
+import { JsonLd } from "../../components/seo/JsonLd";
+import { buildMetadata } from "../../lib/seo/build-metadata";
+import { buildBreadcrumb, buildWebPage } from "../../lib/seo/schema";
 import { partners } from "../../content/partners";
 
-export const metadata: Metadata = {
-  title: "PARTNERS",
-  description:
-    "At OUTLYER, we collaborate with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
-  alternates: { canonical: "/partners" },
-  openGraph: {
-    title: "PARTNERS | OUTLYER",
-    description:
-      "At OUTLYER, we collaborate with best-in-class partners who share our mission to make film more inclusive — on and off camera.",
-    url: "/partners",
-    type: "website",
-  },
-};
+const PARTNERS_DESCRIPTION =
+  "OUTLYER collaborates with best-in-class partners who share our mission to make film more inclusive — on and off camera.";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Partners",
+  description: PARTNERS_DESCRIPTION,
+  path: "/partners",
+});
 
 export default function PartnersPage() {
   return (
     <>
+      <JsonLd
+        data={buildWebPage({
+          name: "Partners — OUTLYER",
+          description: PARTNERS_DESCRIPTION,
+          path: "/partners",
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Partners", path: "/partners" },
+        ])}
+      />
       <section className="ol-partners-intro" aria-label="Partners overview">
         <div className="ol-partners-intro-left">
           <h1>

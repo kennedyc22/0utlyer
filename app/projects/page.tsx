@@ -2,25 +2,44 @@ import type { Metadata } from "next";
 import { Container } from "../../components/primitives/Container";
 import { Section } from "../../components/primitives/Section";
 import { ProjectCard } from "../../components/sections/ProjectCard";
+import { JsonLd } from "../../components/seo/JsonLd";
+import { buildMetadata } from "../../lib/seo/build-metadata";
+import { buildBreadcrumb, buildCollectionPage } from "../../lib/seo/schema";
 import { projects } from "../../content/projects";
+import { SITE_URL } from "../../lib/seo/constants";
 
-export const metadata: Metadata = {
-  title: "PROJECTS",
-  description: "The OUTLYER slate of film and television projects.",
-  alternates: { canonical: "/projects" },
-  openGraph: {
-    title: "PROJECTS | OUTLYER",
-    description: "The OUTLYER slate of film and television projects.",
-    url: "/projects",
-    type: "website",
-  },
-};
+const PROJECTS_DESCRIPTION =
+  "The OUTLYER slate. Film and television projects in development, production, and released — featuring outlyer talent in front of and behind the camera.";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Projects",
+  description: PROJECTS_DESCRIPTION,
+  path: "/projects",
+});
 
 export default function ProjectsIndexPage() {
   const sorted = [...projects].sort((a, b) => b.year - a.year);
 
   return (
     <Section bg="paper" padding="xl">
+      <JsonLd
+        data={buildCollectionPage({
+          name: "Projects — OUTLYER",
+          description: PROJECTS_DESCRIPTION,
+          path: "/projects",
+          items: sorted.map((p) => ({
+            url: `${SITE_URL}/projects/${p.slug}`,
+            name: p.title,
+            image: p.hero.src,
+          })),
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+        ])}
+      />
       <Container>
         <h1 className="ol-page-title">PROJECTS</h1>
         <ul className="ol-projects-grid" data-count={sorted.length}>

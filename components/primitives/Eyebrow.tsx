@@ -17,7 +17,7 @@ const wrapperStyle: CSSProperties = {
   letterSpacing: "var(--tracking-wider)",
   fontWeight: "var(--weight-bold)" as unknown as number,
   textTransform: "uppercase",
-  color: "var(--color-accent)",
+  color: "var(--color-accent-text)",
   margin: 0,
 };
 
