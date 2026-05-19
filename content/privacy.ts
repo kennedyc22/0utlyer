@@ -25,12 +25,12 @@ export const privacyBlocks: PrivacyBlock[] = [
   {
     kind: "p",
     // TODO(legal): registered company address.
-    text: "Registered address: [address to be confirmed].",
+    text: "Registered address: Suite 412, Gilmoora House, 57-61 Mortimer Street, London, England, W1W 8HS.",
   },
   {
     kind: "p",
     // TODO(legal): company registration number.
-    text: "Companies House number: [number to be confirmed].",
+    text: "Companies House number: 14539526.",
   },
 
   { kind: "h2", text: "What data we collect" },
@@ -83,7 +83,7 @@ export const privacyBlocks: PrivacyBlock[] = [
   {
     kind: "p",
     // TODO(legal): DPO email address.
-    text: "To exercise any of these rights, contact our Data Protection Officer at privacy@0utlyer.com. We will respond within one calendar month.",
+    text: "To exercise any of these rights, contact us at chris@0utlyer.com. We will respond within one calendar month.",
   },
 
   { kind: "h2", text: "Cookies" },
