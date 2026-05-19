@@ -438,15 +438,19 @@
   align-items: center;
   justify-items: center;
   text-align: center;
+  /* Mark and lockup share one width so they always render edge-aligned. */
+  --lockup-width: clamp(220px, 22vw, 340px);
 }
 .ol-slide-brand-mark {
   grid-area: mark;
   display: flex;
   justify-content: center;
+  width: var(--lockup-width);
+  max-width: 100%;
 }
 .ol-slide-brand-mark img {
-  width: auto;
-  height: clamp(180px, 32vw, 320px);
+  width: 100%;
+  height: auto;
   display: block;
 }
 .ol-slide-brand-copy {
@@ -462,7 +466,6 @@
    lockup. */
 .ol-slide-brand-lockup {
   grid-area: lockup;
-  --lockup-width: clamp(220px, 22vw, 340px);
   display: flex;
   flex-direction: column;
   width: var(--lockup-width);
@@ -513,6 +516,7 @@
     align-items: stretch;
     justify-items: stretch;
     text-align: left;
+    --lockup-width: clamp(260px, 24vw, 360px);
   }
   .ol-slide-brand-mark {
     justify-content: flex-start;
@@ -520,9 +524,8 @@
     overflow: visible;
   }
   .ol-slide-brand-mark img {
-    height: 100%;
-    width: auto;
-    max-height: min(72vh, 640px);
+    width: 100%;
+    height: auto;
     position: relative;
     z-index: 0;
   }
@@ -534,7 +537,6 @@
   }
   .ol-slide-brand-lockup {
     align-self: end;
-    --lockup-width: clamp(260px, 24vw, 360px);
   }
   .ol-slide-brand-tag {
     font-size: clamp(0.6875rem, 0.85vw, 0.875rem);

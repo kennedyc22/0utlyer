@@ -70,6 +70,12 @@ test("keyboard: every tab stop is in-viewport with a visible focus indicator", a
     consecutiveNull = 0;
     stops++;
 
+    // Skip Next.js system Web Components (e.g. NEXTJS-PORTAL, NEXT-ROUTE-
+    // ANNOUNCER). They occasionally enter the tab order in Next 16 but are
+    // framework infrastructure, not user-facing UI, and don't carry focus
+    // indicators by design.
+    if (state.tag.startsWith("NEXT")) continue;
+
     // The browser scrolls focused elements into view automatically; assert
     // the rect is on-screen vertically and horizontally.
     const vw = page.viewportSize()!;

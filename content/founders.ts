@@ -5,6 +5,7 @@ export type Founder = {
   bio: string;
   photo: { src: string; alt: string };
   link?: { label: string; href: string };
+  hideCta?: boolean;
 };
 
 export const founders: Founder[] = [
@@ -31,6 +32,7 @@ export const founders: Founder[] = [
       src: "/headshots/Joanne Rey.jpg",
       alt: "Portrait of Joanne Reay, CEO and Co-Founder of Outlyer.",
     },
+    hideCta: true,
   },
   {
     slug: "chris-martin",

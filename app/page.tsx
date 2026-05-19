@@ -16,7 +16,7 @@ import { founders } from "../content/founders";
 
 // Home: bypass the layout's "%s — OUTLYER" title template so the headline
 // reads as a single sentence rather than "OUTLYER — Inclusive… — OUTLYER".
-const HOME_TITLE = "OUTLYER — Inclusive Film & TV Production";
+const HOME_TITLE = "OUTLYER | Inclusive Film & TV Production";
 export const metadata: Metadata = {
   ...buildMetadata({
     title: HOME_TITLE,
