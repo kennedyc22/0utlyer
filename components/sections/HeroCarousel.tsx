@@ -74,6 +74,7 @@ export function HeroCarousel() {
       >
         <Link
           href="/projects/slippery-beast"
+          prefetch={false}
           aria-label="View Slippery Beast project"
           tabIndex={index === 1 ? 0 : -1}
           style={{ position: "absolute", inset: 0, display: "block" }}

@@ -3,6 +3,8 @@ import { Container } from "../primitives/Container";
 import { Wordmark } from "./Wordmark";
 import { navLinks } from "./nav-links";
 
+const HEAVY_ROUTES = new Set(["/projects", "/team", "/partners", "/legacy"]);
+
 export function Footer() {
   return (
     <footer className="ol-footer">
@@ -12,7 +14,11 @@ export function Footer() {
           <ul className="ol-footer-nav" aria-label="Footer">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="ol-nav-link">
+                <Link
+                  href={l.href}
+                  className="ol-nav-link"
+                  prefetch={HEAVY_ROUTES.has(l.href) ? false : undefined}
+                >
                   {l.label}
                 </Link>
               </li>

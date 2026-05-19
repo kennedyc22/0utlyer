@@ -14,6 +14,8 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
+const HEAVY_ROUTES = new Set(["/projects", "/team", "/partners", "/legacy"]);
+
 export function Nav() {
   const pathname = usePathname() ?? "/";
   const [open, setOpen] = useState(false);
@@ -75,6 +77,7 @@ export function Nav() {
                   href={l.href}
                   className="ol-nav-link"
                   aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                  prefetch={HEAVY_ROUTES.has(l.href) ? false : undefined}
                 >
                   {l.label}
                 </Link>
@@ -123,6 +126,7 @@ export function Nav() {
                 href={l.href}
                 className="ol-nav-link"
                 aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                prefetch={HEAVY_ROUTES.has(l.href) ? false : undefined}
                 onClick={() => setOpen(false)}
               >
                 {l.label}
