@@ -57,6 +57,10 @@ next-env.d.ts
 # lighthouse ci
 /.lighthouseci/
 
+# pre-handover verification — local-only evidence (screenshots, report, ad-hoc
+# Playwright spec). Not part of the deployed site; excluded from the handover.
+/tests/handover/
+
 # Windows attachment metadata (created when files are copied from the web/email)
 *:Zone.Identifier
 **/Zone.Identifier
