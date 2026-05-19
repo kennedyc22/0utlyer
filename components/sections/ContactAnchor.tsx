@@ -27,7 +27,7 @@ export function ContactAnchor() {
             method="post"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/contact-success"
+            action="/"
           >
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
