@@ -1,6 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -71,14 +72,21 @@ export function HeroCarousel() {
         aria-hidden={index !== 1}
         aria-label="Featured project: Slippery Beast"
       >
-        <NextImage
-          src="/project-images/slippery-beast.avif"
-          alt="Slippery Beast — Outlyer feature project"
-          fill
-          sizes="100vw"
-          style={{ objectFit: "contain", objectPosition: "center" }}
-          priority
-        />
+        <Link
+          href="/projects/slippery-beast"
+          aria-label="View Slippery Beast project"
+          tabIndex={index === 1 ? 0 : -1}
+          style={{ position: "absolute", inset: 0, display: "block" }}
+        >
+          <NextImage
+            src="/project-images/slippery-beast.avif"
+            alt="Slippery Beast — Outlyer feature project"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "contain", objectPosition: "center" }}
+            priority
+          />
+        </Link>
       </article>
 
       {/* Slide 3 — Chris Martin quote */}

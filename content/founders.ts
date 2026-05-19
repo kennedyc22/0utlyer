@@ -17,7 +17,10 @@ export const founders: Founder[] = [
       src: "/headshots/Emmanuel Kelly.png",
       alt: "Portrait of Emmanuel Kelly, CVO and Co-Founder of Outlyer.",
     },
-    link: { label: "emmanuelkelly.com", href: "https://emmanuelkelly.com" },
+    link: {
+      label: "emmanuelkelly.com",
+      href: "https://www.emmanuelkelly.com/",
+    },
   },
   {
     slug: "joanne-reay",

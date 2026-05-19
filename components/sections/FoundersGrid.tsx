@@ -22,9 +22,20 @@ function FounderCard({ founder }: { founder: Founder }) {
         <div className="ol-founder-overlay" inert>
           <p className="ol-founder-bio">{founder.bio}</p>
           <span className="ol-founder-overlay-name">{founder.name}</span>
-          <a className="ol-founder-cta" href={`/team#${founder.slug}`}>
-            View More
-          </a>
+          {founder.link ? (
+            <a
+              className="ol-founder-cta"
+              href={founder.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View More
+            </a>
+          ) : (
+            <a className="ol-founder-cta" href={`/team#${founder.slug}`}>
+              View More
+            </a>
+          )}
         </div>
       ) : null}
     </article>
