@@ -422,16 +422,15 @@
  * Desktop: Ø stacked above the OUTLYER lockup in the left column; copy
  * sits to the right. Mark is narrower than the lockup and capped in height
  * so it never overlaps the wordmark.
- * Mobile: clean centred stack — Ø, copy, lockup.
+ * Mobile: centred stack (Ø + lockup), then copy.
  * ---------------------------------------------------------------------*/
 .ol-slide-brand {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    "mark"
-    "copy"
-    "lockup";
+    "stack"
+    "copy";
   gap: var(--space-8);
   padding: clamp(var(--space-12), 6vh, var(--space-24))
     clamp(var(--space-6), 4vw, var(--space-16));
@@ -441,17 +440,34 @@
   --lockup-width: clamp(220px, 22vw, 340px);
   /* Ø sits above the wordmark — slightly narrower so it reads as a cap, not a backdrop. */
   --mark-width: clamp(160px, 16vw, 240px);
+  /* icon.avif transparent padding is heavier on the right; shift to optical centre. */
+  --mark-optical-shift: 2.4%;
+}
+.ol-slide-brand-stack {
+  grid-area: stack;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--lockup-width);
+  max-width: 100%;
+  gap: clamp(var(--space-4), 2vh, var(--space-8));
 }
 .ol-slide-brand-mark {
-  grid-area: mark;
   display: flex;
   justify-content: center;
-  width: var(--mark-width);
-  max-width: 100%;
+  align-items: center;
+  width: 100%;
   flex-shrink: 0;
 }
 /* Next/Image sets inline width/height on the img — match lockup img overrides. */
-.ol-slide-brand-mark :is(span, img) {
+.ol-slide-brand-mark > span {
+  display: block !important;
+  width: var(--mark-width) !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  transform: translateX(var(--mark-optical-shift));
+}
+.ol-slide-brand-mark img {
   display: block !important;
   width: 100% !important;
   max-width: 100% !important;
@@ -469,12 +485,16 @@
    from its natural aspect ratio. Adjust --lockup-width to scale the whole
    lockup. */
 .ol-slide-brand-lockup {
-  grid-area: lockup;
   display: flex;
   flex-direction: column;
-  width: var(--lockup-width);
-  max-width: 100%;
+  width: 100%;
   gap: 0;
+}
+.ol-slide-brand-lockup > span {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
 }
 .ol-slide-brand-lockup img {
   width: 100% !important;
@@ -482,7 +502,7 @@
   height: auto !important;
   display: block;
   object-fit: contain;
-  object-position: left center;
+  object-position: center center;
 }
 .ol-slide-brand-tag {
   display: block;
@@ -505,47 +525,41 @@
 @media (min-width: 1024px) {
   .ol-slide-brand {
     grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
-    /* auto rows: Ø height follows the image; lockup sits directly underneath. */
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "mark copy"
-      "lockup .";
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "stack copy";
     column-gap: clamp(var(--space-6), 3vw, var(--space-12));
-    row-gap: clamp(var(--space-4), 2vh, var(--space-8));
     /* Generous left padding so the Ø + lockup sit ~15% inset rather than
        hugging the edge of the slide. */
     padding: clamp(var(--space-12), 5vh, var(--space-24))
       clamp(var(--space-12), 5vw, var(--space-24))
       clamp(var(--space-12), 5vh, var(--space-24))
       clamp(var(--space-24), 12vw, 14vw);
-    align-items: stretch;
-    justify-items: stretch;
+    align-items: end;
+    justify-items: start;
     text-align: left;
     --lockup-width: clamp(260px, 24vw, 360px);
     --mark-width: clamp(180px, 17vw, 260px);
   }
-  .ol-slide-brand-mark {
-    justify-content: flex-start;
-    align-items: flex-start;
+  .ol-slide-brand-stack {
     align-self: end;
-    justify-self: start;
+    gap: clamp(var(--space-4), 2vh, var(--space-8));
+  }
+  .ol-slide-brand-mark {
     overflow: hidden;
     max-height: min(42vh, 420px);
   }
-  .ol-slide-brand-mark :is(span, img) {
+  .ol-slide-brand-mark > span,
+  .ol-slide-brand-mark img {
     max-height: min(42vh, 420px);
     object-fit: contain;
-    object-position: left bottom;
+    object-position: center bottom;
   }
   .ol-slide-brand-copy {
     align-self: center;
+    justify-self: stretch;
     max-width: none;
     position: relative;
     z-index: 1;
-  }
-  .ol-slide-brand-lockup {
-    align-self: start;
-    justify-self: start;
   }
   .ol-slide-brand-tag {
     font-size: clamp(0.6875rem, 0.85vw, 0.875rem);
@@ -1193,14 +1207,14 @@
   background: var(--color-white);
 }
 .ol-partners-intro-right {
-  background: var(--color-white);
-  color: #111;
+  background-color: var(--color-outlyer-red);
+  color: var(--color-white);
 }
 .ol-partners-intro-right p {
   font-family: var(--font-text);
   font-size: clamp(1rem, 1.15vw, 1.0625rem);
   line-height: 1.55;
-  color: #111;
+  color: var(--color-white);
   margin: 0;
 }
 
@@ -1414,13 +1428,16 @@
   color: var(--color-white);
 }
 .ol-legacy-body {
-  width: 100%;
+  width: min(100%, var(--legacy-col));
   max-width: var(--legacy-col);
   margin-inline: auto;
+  align-self: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-6);
+  text-align: center;
 }
 .ol-legacy-body p {
   font-family: var(--font-text);
@@ -1428,14 +1445,29 @@
   line-height: var(--leading-relaxed);
   color: var(--color-white);
   margin: 0;
+  width: 100%;
+  text-wrap: balance;
+}
+@supports (text-wrap: pretty) {
+  .ol-legacy-body p {
+    text-wrap: pretty;
+  }
+}
+/* Short intro blocks: balance line lengths instead of pretty’s orphan control. */
+.ol-legacy-body--lead p {
+  text-wrap: balance;
+}
+.ol-legacy-cta {
+  margin: 0;
 }
 
 /* Cambridge figure with overlay logos and red caption banner */
 .ol-legacy-figure {
   position: relative;
-  width: 100%;
+  width: min(100%, var(--legacy-col));
   max-width: var(--legacy-col);
-  margin: 0 auto;
+  margin-inline: auto;
+  align-self: center;
   box-sizing: border-box;
   overflow: hidden;
 }

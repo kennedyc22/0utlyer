@@ -4,6 +4,7 @@ import { JsonLd } from "../../components/seo/JsonLd";
 import { buildMetadata } from "../../lib/seo/build-metadata";
 import { buildArticle, buildBreadcrumb } from "../../lib/seo/schema";
 import { legacyFrontmatter, legacyParagraphs } from "../../content/legacy";
+import { formatLegacyParagraph } from "../../lib/format-legacy-paragraph";
 
 // TODO(seo): datePublished for the Legacy article — Dan to confirm. The audit
 // page references a February 2025 Cambridge symposium so a placeholder of
@@ -52,9 +53,9 @@ export default function LegacyPage() {
         <h1 className="ol-page-title">THE KINGDOM OF O</h1>
       </header>
 
-      <section className="ol-legacy-body">
+      <section className="ol-legacy-body ol-legacy-body--lead">
         {aboveImage.map((p, i) => (
-          <p key={`a-${i}`}>{p}</p>
+          <p key={`a-${i}`}>{formatLegacyParagraph(p)}</p>
         ))}
       </section>
 
@@ -84,7 +85,7 @@ export default function LegacyPage() {
 
       <section className="ol-legacy-body">
         {belowImage.map((p, i) => (
-          <p key={`b-${i}`}>{p}</p>
+          <p key={`b-${i}`}>{formatLegacyParagraph(p)}</p>
         ))}
         <p className="ol-legacy-cta">
           <NextLink href="/projects" className="ol-link-underline">

@@ -39,15 +39,28 @@ export function HeroCarousel() {
         aria-hidden={index !== 0}
         aria-label="OUTLYER — A Film and TV production company with a powerful Inclusion Mission"
       >
-        <div className="ol-slide-brand-mark">
-          <NextImage
-            src="/icon.avif"
-            alt=""
-            width={360}
-            height={360}
-            priority
-            unoptimized
-          />
+        <div className="ol-slide-brand-stack ol-anim-in">
+          <div className="ol-slide-brand-mark">
+            <NextImage
+              src="/icon.avif"
+              alt=""
+              width={360}
+              height={360}
+              priority
+              unoptimized
+            />
+          </div>
+          <div className="ol-slide-brand-lockup ol-anim-in-3">
+            <NextImage
+              src="/logo.avif"
+              alt="OUTLYER"
+              width={900}
+              height={380}
+            />
+            <span className="ol-slide-brand-tag">
+              ZERO BARRIERS CONNECTING WORLDS
+            </span>
+          </div>
         </div>
         <div className="ol-slide-brand-copy ol-anim-in">
           <h1 className="ol-slide-headline">
@@ -56,12 +69,6 @@ export function HeroCarousel() {
           <p className="ol-slide-sub ol-anim-in-2">
             Founded by Coldplays Chris Martin and Emmanuel Kelly.
           </p>
-        </div>
-        <div className="ol-slide-brand-lockup ol-anim-in ol-anim-in-3">
-          <NextImage src="/logo.avif" alt="OUTLYER" width={900} height={380} />
-          <span className="ol-slide-brand-tag">
-            ZERO BARRIERS CONNECTING WORLDS
-          </span>
         </div>
       </article>
 
