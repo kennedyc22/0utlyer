@@ -63,6 +63,15 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
+    name: "Matteo Ingrao",
+    role: "In-House Executive Producer",
+    bio: "",
+    photo: {
+      src: "/headshots/Matteo Ingrao.jpg",
+      alt: "Portrait of Matteo Ingrao, In-House Executive Producer.",
+    },
+  },
+  {
     name: "Chris Curry",
     role: "Post Production Manager",
     bio: "",
