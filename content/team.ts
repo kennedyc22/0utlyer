@@ -72,6 +72,15 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
+    name: "Pat Kelly",
+    role: "Brand Management",
+    bio: "",
+    photo: {
+      src: "/headshots/Pat Kelly.png",
+      alt: "Portrait of Pat Kelly, Brand Management.",
+    },
+  },
+  {
     name: "Chris Curry",
     role: "Post Production Manager",
     bio: "",
