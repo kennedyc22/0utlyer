@@ -419,9 +419,9 @@
 
 /* -----------------------------------------------------------------------
  * Slide 1 — Brand
- * Desktop: 12-column grid; big Ø spans the left half top→bottom, copy
- * occupies the right half (vertically centred high), OUTLYER + tagline
- * lockup pinned bottom-left under the Ø.
+ * Desktop: Ø stacked above the OUTLYER lockup in the left column; copy
+ * sits to the right. Mark is narrower than the lockup and capped in height
+ * so it never overlaps the wordmark.
  * Mobile: clean centred stack — Ø, copy, lockup.
  * ---------------------------------------------------------------------*/
 .ol-slide-brand {
@@ -438,20 +438,24 @@
   align-items: center;
   justify-items: center;
   text-align: center;
-  /* Mark and lockup share one width so they always render edge-aligned. */
   --lockup-width: clamp(220px, 22vw, 340px);
+  /* Ø sits above the wordmark — slightly narrower so it reads as a cap, not a backdrop. */
+  --mark-width: clamp(160px, 16vw, 240px);
 }
 .ol-slide-brand-mark {
   grid-area: mark;
   display: flex;
   justify-content: center;
-  width: var(--lockup-width);
+  width: var(--mark-width);
   max-width: 100%;
+  flex-shrink: 0;
 }
-.ol-slide-brand-mark img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Next/Image sets inline width/height on the img — match lockup img overrides. */
+.ol-slide-brand-mark :is(span, img) {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 .ol-slide-brand-copy {
   grid-area: copy;
@@ -500,13 +504,14 @@
 
 @media (min-width: 1024px) {
   .ol-slide-brand {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+    /* auto rows: Ø height follows the image; lockup sits directly underneath. */
+    grid-template-rows: auto auto;
     grid-template-areas:
       "mark copy"
       "lockup .";
     column-gap: clamp(var(--space-6), 3vw, var(--space-12));
-    row-gap: clamp(var(--space-6), 3vh, var(--space-12));
+    row-gap: clamp(var(--space-4), 2vh, var(--space-8));
     /* Generous left padding so the Ø + lockup sit ~15% inset rather than
        hugging the edge of the slide. */
     padding: clamp(var(--space-12), 5vh, var(--space-24))
@@ -517,17 +522,20 @@
     justify-items: stretch;
     text-align: left;
     --lockup-width: clamp(260px, 24vw, 360px);
+    --mark-width: clamp(180px, 17vw, 260px);
   }
   .ol-slide-brand-mark {
     justify-content: flex-start;
     align-items: flex-start;
-    overflow: visible;
+    align-self: end;
+    justify-self: start;
+    overflow: hidden;
+    max-height: min(42vh, 420px);
   }
-  .ol-slide-brand-mark img {
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 0;
+  .ol-slide-brand-mark :is(span, img) {
+    max-height: min(42vh, 420px);
+    object-fit: contain;
+    object-position: left bottom;
   }
   .ol-slide-brand-copy {
     align-self: center;
@@ -536,7 +544,8 @@
     z-index: 1;
   }
   .ol-slide-brand-lockup {
-    align-self: end;
+    align-self: start;
+    justify-self: start;
   }
   .ol-slide-brand-tag {
     font-size: clamp(0.6875rem, 0.85vw, 0.875rem);

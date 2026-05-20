@@ -43,8 +43,8 @@ export function HeroCarousel() {
           <NextImage
             src="/icon.avif"
             alt=""
-            width={900}
-            height={900}
+            width={360}
+            height={360}
             priority
             unoptimized
           />
