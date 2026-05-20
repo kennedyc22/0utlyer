@@ -99,12 +99,12 @@ export function ContactAnchor() {
             }}
           >
             <a
-              href="mailto:chris@0utlyer.com"
+              href="mailto:info@0utlyer.com"
               className="ol-link-underline"
               data-testid="contact-anchor-mailto"
               style={{ color: "var(--color-fg-muted)", textDecoration: "none" }}
             >
-              chris@0utlyer.com
+              info@0utlyer.com
             </a>
           </p>
         </div>
