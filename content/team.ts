@@ -54,12 +54,12 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
-    name: "Susan Carey",
+    name: "Sue Carey",
     role: "Operations Manager",
     bio: "",
     photo: {
-      src: "/headshots/Susan.avif",
-      alt: "Portrait of Susan Carey, Operations Manager.",
+      src: "/headshots/Sue.avif",
+      alt: "Portrait of Sue Carey, Operations Manager.",
     },
   },
   {
