@@ -45,6 +45,24 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
+    name: "Frances Knox",
+    role: "Project Manager",
+    bio: "",
+    photo: {
+      src: "/headshots/Frances Knox.png",
+      alt: "Portrait of Frances Knox, Project Manager",
+    },
+  },
+  {
+    name: "Pat Kelly",
+    role: "Brand Manager",
+    bio: "",
+    photo: {
+      src: "/headshots/Pat Kelly.png",
+      alt: "Portrait of Pat Kelly, Brand Manager.",
+    },
+  },
+  {
     name: "Rich Aitken",
     role: "VP OUTLOUD & Head of Sound Post",
     bio: "A score mixer and producer, he specialises in delivering AAA-standard, world-class mixes for leading composers across film, TV, and games. His credits include Ivor Novello, Emmy, BAFTA, and MASA-winning and nominated scores such as Killzone, 24, How We Invented the World, Clumsy Ninja, The Forgiven, Horizon Zero Dawn and The Reliant.",
@@ -69,15 +87,6 @@ export const broaderTeam: TeamMember[] = [
     photo: {
       src: "/headshots/Matteo Ingrao.jpg",
       alt: "Portrait of Matteo Ingrao, In-House Executive Producer.",
-    },
-  },
-  {
-    name: "Pat Kelly",
-    role: "Brand Management",
-    bio: "",
-    photo: {
-      src: "/headshots/Pat Kelly.png",
-      alt: "Portrait of Pat Kelly, Brand Management.",
     },
   },
   {
