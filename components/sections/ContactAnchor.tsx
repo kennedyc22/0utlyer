@@ -24,9 +24,10 @@ export function ContactAnchor() {
           <form
             className="ol-form"
             name="contact"
-            method="post"
+            method="POST"
             data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
+            encType="application/x-www-form-urlencoded"
             action="/"
           >
             <input type="hidden" name="form-name" value="contact" />
