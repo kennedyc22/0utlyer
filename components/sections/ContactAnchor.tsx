@@ -1,8 +1,14 @@
 import NextImage from "next/image";
 import { Button } from "../primitives/Button";
 import { Container } from "../primitives/Container";
+import { ContactFormSuccess } from "./ContactFormSuccess";
 
-export function ContactAnchor() {
+type ContactAnchorProps = {
+  /** Set when Netlify redirects to /?contact=sent#contact after a successful POST */
+  submitted?: boolean;
+};
+
+export function ContactAnchor({ submitted = false }: ContactAnchorProps) {
   return (
     <section
       id="contact"
@@ -21,75 +27,84 @@ export function ContactAnchor() {
       <Container>
         <div className="ol-contact-inner">
           <h2>JOIN OUR COMMUNITY</h2>
-          <form
-            className="ol-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            encType="application/x-www-form-urlencoded"
-            action="/"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <p hidden>
-              <label>
-                Don&rsquo;t fill this out: <input name="bot-field" />
-              </label>
-            </p>
-            <div className="ol-form-row">
-              <div className="ol-field">
-                <label htmlFor="contact-firstName">
-                  First Name <span aria-hidden="true">*</span>{" "}
-                  <span className="ol-required-text">(required)</span>
-                </label>
-                <input
-                  id="contact-firstName"
-                  name="firstName"
-                  type="text"
-                  required
-                  autoComplete="given-name"
-                />
-              </div>
-              <div className="ol-field">
-                <label htmlFor="contact-lastName">
-                  Last Name <span aria-hidden="true">*</span>{" "}
-                  <span className="ol-required-text">(required)</span>
-                </label>
-                <input
-                  id="contact-lastName"
-                  name="lastName"
-                  type="text"
-                  required
-                  autoComplete="family-name"
-                />
-              </div>
-            </div>
-            <div className="ol-field">
-              <label htmlFor="contact-email">
-                Email <span aria-hidden="true">*</span>{" "}
-                <span className="ol-required-text">(required)</span>
-              </label>
+          {submitted ? (
+            <ContactFormSuccess />
+          ) : (
+            <form
+              className="ol-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              encType="application/x-www-form-urlencoded"
+              action="/forms.html"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <input
-                id="contact-email"
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
+                type="hidden"
+                name="redirect"
+                value="/?contact=sent#contact"
               />
-            </div>
-            <div className="ol-field">
-              <label htmlFor="contact-message">Message</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={4}
-                autoComplete="off"
-              />
-            </div>
-            <Button type="submit" variant="primary" size="lg">
-              SEND
-            </Button>
-          </form>
+              <p hidden>
+                <label>
+                  Don&rsquo;t fill this out: <input name="bot-field" />
+                </label>
+              </p>
+              <div className="ol-form-row">
+                <div className="ol-field">
+                  <label htmlFor="contact-firstName">
+                    First Name <span aria-hidden="true">*</span>{" "}
+                    <span className="ol-required-text">(required)</span>
+                  </label>
+                  <input
+                    id="contact-firstName"
+                    name="firstName"
+                    type="text"
+                    required
+                    autoComplete="given-name"
+                  />
+                </div>
+                <div className="ol-field">
+                  <label htmlFor="contact-lastName">
+                    Last Name <span aria-hidden="true">*</span>{" "}
+                    <span className="ol-required-text">(required)</span>
+                  </label>
+                  <input
+                    id="contact-lastName"
+                    name="lastName"
+                    type="text"
+                    required
+                    autoComplete="family-name"
+                  />
+                </div>
+              </div>
+              <div className="ol-field">
+                <label htmlFor="contact-email">
+                  Email <span aria-hidden="true">*</span>{" "}
+                  <span className="ol-required-text">(required)</span>
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                />
+              </div>
+              <div className="ol-field">
+                <label htmlFor="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows={4}
+                  autoComplete="off"
+                />
+              </div>
+              <Button type="submit" variant="primary" size="lg">
+                SEND
+              </Button>
+            </form>
+          )}
           {/* Accessibility fallback: keep a mailto so the existing smoke test
               and assistive tech still find a contact link. */}
           <p

@@ -26,7 +26,14 @@ export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
 };
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ contact?: string }>;
+}) {
+  const { contact } = await searchParams;
+  const contactSubmitted = contact === "sent";
+
   return (
     <>
       <JsonLd data={buildOrganization(founders)} />
@@ -44,7 +51,7 @@ export default function Home() {
       <HeroCarousel />
       <MissionBlock />
       <FoundersGrid />
-      <ContactAnchor />
+      <ContactAnchor submitted={contactSubmitted} />
     </>
   );
 }

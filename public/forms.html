@@ -1,8 +1,24 @@
-﻿<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="hidden" name="form-name" value="contact" />
-  <input name="bot-field" />
-  <input name="firstName" />
-  <input name="lastName" />
-  <input name="email" type="email" />
-  <textarea name="message"></textarea>
-</form>
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contact form</title>
+  </head>
+  <body>
+    <!-- Static Netlify Forms endpoint: live POSTs must target this file, not /. -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="email" type="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

@@ -8,9 +8,8 @@
 // - HTML5 validation refuses an empty submission and the first invalid
 //   field receives focus.
 //
-// The Netlify POST itself isn't intercepted live (the build-time form action
-// targets /contact-success which only exists on the production deploy); we
-// assert the form is structurally correct for Netlify to accept it.
+// The Netlify POST itself isn't exercised in CI (requires a Netlify deploy);
+// we assert the form POSTs to the static /forms.html endpoint, not /.
 
 import { expect, test } from "@playwright/test";
 
@@ -23,6 +22,19 @@ test("form-integrity: server-rendered Netlify form is present in home HTML", asy
   expect(html).toContain('data-netlify="true"');
   expect(html).toContain('name="form-name"');
   expect(html).toContain('value="contact"');
+  expect(html).toContain('action="/forms.html"');
+  expect(html).toContain('value="/?contact=sent#contact"');
+});
+
+test("form-integrity: success acknowledgement after Netlify redirect param", async ({
+  page,
+}) => {
+  await page.goto("/?contact=sent#contact");
+  await page.waitForLoadState("networkidle");
+  const success = page.getByTestId("contact-form-success");
+  await expect(success).toBeVisible();
+  await expect(success).toContainText("Thanks");
+  await expect(page.locator('form[name="contact"]')).toHaveCount(0);
 });
 
 test("form-integrity: hidden form field names match the live form", async ({

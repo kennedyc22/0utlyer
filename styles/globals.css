@@ -1338,6 +1338,40 @@
 .ol-form [data-variant="primary"] {
   width: 100%;
 }
+.ol-contact-success {
+  display: grid;
+  gap: var(--space-6);
+  text-align: center;
+}
+.ol-contact-success:focus {
+  outline: none;
+}
+.ol-contact-success-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  margin: 0;
+}
+.ol-contact-success-detail {
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  color: var(--color-white);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+.ol-contact-success-home {
+  margin: 0;
+  font-size: var(--text-meta);
+}
+.ol-contact-success-home a {
+  color: var(--color-fg-muted);
+}
+.ol-contact-success [data-variant="secondary"] {
+  width: 100%;
+}
 @media (min-width: 768px) {
   .ol-form-row {
     display: grid;
