@@ -44,6 +44,15 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
+    name: "Rich Aitken",
+    role: "VP OUTLOUD & Head of Sound Post",
+    bio: "A score mixer and producer, he specialises in delivering AAA-standard, world-class mixes for leading composers across film, TV, and games. His credits include Ivor Novello, Emmy, BAFTA, and MASA-winning and nominated scores such as Killzone, 24, How We Invented the World, Clumsy Ninja, The Forgiven, Horizon Zero Dawn and The Reliant.",
+    photo: {
+      src: "/headshots/Rich Aitken.jpg",
+      alt: "Portrait of Rich Aitken, VP OUTLOUD and Head of Sound Post.",
+    },
+  },
+  {
     name: "Frances Knox",
     role: "Project Manager",
     bio: "",
@@ -62,21 +71,31 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
-    name: "Rich Aitken",
-    role: "VP OUTLOUD & Head of Sound Post",
-    bio: "A score mixer and producer, he specialises in delivering AAA-standard, world-class mixes for leading composers across film, TV, and games. His credits include Ivor Novello, Emmy, BAFTA, and MASA-winning and nominated scores such as Killzone, 24, How We Invented the World, Clumsy Ninja, The Forgiven, Horizon Zero Dawn and The Reliant.",
-    photo: {
-      src: "/headshots/Rich Aitken.jpg",
-      alt: "Portrait of Rich Aitken, VP OUTLOUD and Head of Sound Post.",
-    },
-  },
-  {
     name: "Sue Carey",
     role: "Operations Manager",
     bio: "",
     photo: {
       src: "/headshots/Sue.avif",
       alt: "Portrait of Sue Carey, Operations Manager.",
+    },
+  },
+  {
+    name: "Emily Marr",
+    role: "Senior Parliamentary Researcher & Government Liaison",
+    bio: "",
+    photo: {
+      src: "/headshots/Emily Marr.png",
+      alt: "Portrait of Emily Marr, Senior Parliamentary Researcher & Government Liaison.",
+      objectPosition: "50% 35%",
+    },
+  },
+  {
+    name: "Katie Reay",
+    role: "Psychologist & Communication Coach",
+    bio: "",
+    photo: {
+      src: "/headshots/Katie Reay.png",
+      alt: "Portrait of Katie Reay, Psychologist & Communication Coach",
     },
   },
   {
@@ -119,13 +138,12 @@ export const outlyerCircle: TeamMember[] = [
     },
   },
   {
-    name: "Emily Marr",
-    role: "Senior Parliamentary Researcher",
+    name: "Lee Brooks",
+    role: "Co-Founder & CEO of Production Park",
     bio: "",
     photo: {
-      src: "/headshots/Emily Marr.png",
-      alt: "Portrait of Emily Marr, Senior Parliamentary Researcher.",
-      objectPosition: "50% 35%",
+      src: "/headshots/Lee Brooks.png",
+      alt: "Lee Brooks, Co-Founder & CEO of Production Park",
     },
   },
   {
@@ -165,15 +183,6 @@ export const outlyerCircle: TeamMember[] = [
     },
   },
   {
-    name: "Katie Reay",
-    role: "Psychologist & Communication Coach",
-    bio: "",
-    photo: {
-      src: "/headshots/Katie Reay.png",
-      alt: "Portrait of Katie Reay, Psychologist & Communication Coach",
-    },
-  },
-  {
     name: "Laurence Fishman FCA",
     role: "Partner at NLP - THE accountant for trailblazers & game changers",
     bio: "",
@@ -198,15 +207,6 @@ export const outlyerCircle: TeamMember[] = [
     photo: {
       src: "/headshots/Jon Geldart.png",
       alt: "Portrait of Jon Geldart Hon DBA, Director General, Institute of Directors",
-    },
-  },
-  {
-    name: "Lee Brooks",
-    role: "Co-Founder & CEO of Production Park",
-    bio: "",
-    photo: {
-      src: "/headshots/Lee Brooks.png",
-      alt: "Lee Brooks, Co-Founder & CEO of Production Park",
     },
   },
 ];

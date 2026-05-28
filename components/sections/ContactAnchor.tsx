@@ -5,10 +5,11 @@ import { BrandLockup } from "./BrandLockup";
 import { ContactIntroBlock } from "./ContactIntroBlock";
 import { ContactFormSuccess } from "./ContactFormSuccess";
 import { ContactSubmitButton } from "./ContactSubmitButton";
+import { RecaptchaWidget } from "./RecaptchaWidget";
 
 const RECAPTCHA_SITE_KEY =
   process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ??
-  // Public Google test key; replace with real key via NEXT_PUBLIC_RECAPTCHA_SITE_KEY.
+  // Public test key so captcha is always visible; replace in Netlify env for production.
   "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 type ContactAnchorProps = {
@@ -51,7 +52,6 @@ function ContactFormFields({
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           encType="application/x-www-form-urlencoded"
           action="/forms.html"
         >
@@ -114,10 +114,9 @@ function ContactFormFields({
           </div>
           <div
             className="ol-form-recaptcha"
-            data-netlify-recaptcha="true"
             aria-label="Spam protection challenge"
           >
-            <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} />
+            <RecaptchaWidget siteKey={RECAPTCHA_SITE_KEY} />
           </div>
           <ContactSubmitButton />
         </form>
@@ -167,7 +166,7 @@ export function ContactAnchor({
     <section id="contact" className={sectionClass} aria-label={ariaLabel}>
       <Script
         id="google-recaptcha-api"
-        src="https://www.google.com/recaptcha/api.js"
+        src="https://www.google.com/recaptcha/api.js?render=explicit"
         strategy="afterInteractive"
       />
       {showRibbon && !isSplit ? (
