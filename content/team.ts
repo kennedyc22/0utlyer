@@ -77,6 +77,7 @@ export const broaderTeam: TeamMember[] = [
     photo: {
       src: "/headshots/Sue.avif",
       alt: "Portrait of Sue Carey, Operations Manager.",
+      objectPosition: "50% 28%",
     },
   },
   {

@@ -8,7 +8,7 @@ import { ContactSubmitButton } from "./ContactSubmitButton";
 type ContactAnchorProps = {
   /** Set when Netlify redirects back with ?contact=sent#contact after a successful POST */
   submitted?: boolean;
-  /** Netlify redirect target after submit (must match a registered form on the page). */
+  /** Netlify post-submit destination. */
   redirectPath?: string;
   heading?: string;
   ariaLabel?: string;
@@ -47,10 +47,9 @@ function ContactFormFields({
           data-netlify-honeypot="bot-field"
           data-netlify-recaptcha="true"
           encType="application/x-www-form-urlencoded"
-          action="/forms.html"
+          action={redirectPath}
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="redirect" value={redirectPath} />
           <p hidden>
             <label>
               Don&rsquo;t fill this out: <input name="bot-field" />
@@ -136,7 +135,7 @@ function ContactFormFields({
 
 export function ContactAnchor({
   submitted = false,
-  redirectPath = "/?contact=sent#contact",
+  redirectPath = "/thank-you",
   heading = "Contact Us",
   ariaLabel = "Contact us",
   showRibbon = true,

@@ -23,8 +23,7 @@ test("form-integrity: server-rendered Netlify form is present in home HTML", asy
   expect(html).toContain('data-netlify-recaptcha="true"');
   expect(html).toContain('name="form-name"');
   expect(html).toContain('value="contact"');
-  expect(html).toContain('action="/forms.html"');
-  expect(html).toContain('value="/?contact=sent#contact"');
+  expect(html).toContain('action="/thank-you"');
 });
 
 test("form-integrity: success acknowledgement after Netlify redirect param", async ({
