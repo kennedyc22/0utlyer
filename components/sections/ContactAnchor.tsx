@@ -45,7 +45,6 @@ function ContactFormFields({
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           encType="application/x-www-form-urlencoded"
           action={redirectPath}
         >
@@ -105,11 +104,6 @@ function ContactFormFields({
               autoComplete="off"
             />
           </div>
-          <div
-            className="ol-form-recaptcha"
-            data-netlify-recaptcha="true"
-            aria-label="Spam protection challenge"
-          />
           <ContactSubmitButton />
         </form>
       )}
