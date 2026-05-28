@@ -9,7 +9,7 @@
 //   field receives focus.
 //
 // The Netlify POST itself isn't exercised in CI (requires a Netlify deploy);
-// we assert the form POSTs to the static /forms.html endpoint, not /.
+// we assert the form carries Netlify attributes and expected redirect target.
 
 import { expect, test } from "@playwright/test";
 

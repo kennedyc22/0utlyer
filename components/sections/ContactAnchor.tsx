@@ -6,7 +6,7 @@ import { ContactFormSuccess } from "./ContactFormSuccess";
 import { ContactSubmitButton } from "./ContactSubmitButton";
 
 type ContactAnchorProps = {
-  /** Set when Netlify redirects back with ?contact=sent#contact after a successful POST */
+  /** Optional inline success state. */
   submitted?: boolean;
   /** Netlify post-submit destination. */
   redirectPath?: string;
