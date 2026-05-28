@@ -2172,13 +2172,6 @@
 .ol-form-recaptcha iframe {
   max-width: 100%;
 }
-.ol-form-captcha-status {
-  margin: 0;
-  text-align: center;
-  font-family: var(--font-text);
-  font-size: var(--text-meta);
-  color: var(--color-fg-muted);
-}
 .ol-contact-success {
   display: grid;
   gap: var(--space-6);

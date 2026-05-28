@@ -20,6 +20,7 @@ test("form-integrity: server-rendered Netlify form is present in home HTML", asy
   expect(res.status()).toBe(200);
   const html = await res.text();
   expect(html).toContain('data-netlify="true"');
+  expect(html).toContain('data-netlify-recaptcha="true"');
   expect(html).toContain('name="form-name"');
   expect(html).toContain('value="contact"');
   expect(html).toContain('action="/forms.html"');

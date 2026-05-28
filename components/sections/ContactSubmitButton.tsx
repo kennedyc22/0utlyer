@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { Button } from "../primitives/Button";
 
 /**
- * Strict captcha gate: SEND stays disabled until a reCAPTCHA token is present.
+ * Netlify-native captcha gate:
+ * - if Netlify injects a captcha widget, SEND requires a token
+ * - if no widget is injected, keep SEND enabled to avoid dead-lock
  */
 export function ContactSubmitButton() {
-  const [submitEnabled, setSubmitEnabled] = useState(false);
-  const [captchaVisible, setCaptchaVisible] = useState(false);
+  const [submitEnabled, setSubmitEnabled] = useState(true);
 
   useEffect(() => {
     const form = document.querySelector<HTMLFormElement>(
@@ -17,10 +18,11 @@ export function ContactSubmitButton() {
     if (!form) return;
 
     const sync = () => {
-      const hasWidget = Boolean(form.querySelector('iframe[src*="recaptcha"]'));
-      setCaptchaVisible(hasWidget);
+      const hasWidget = Boolean(
+        form.querySelector('iframe[src*="recaptcha"], .g-recaptcha'),
+      );
       if (!hasWidget) {
-        setSubmitEnabled(false);
+        setSubmitEnabled(true);
         return;
       }
       const response = form.querySelector<HTMLTextAreaElement>(
@@ -45,20 +47,8 @@ export function ContactSubmitButton() {
   }, []);
 
   return (
-    <>
-      {!captchaVisible ? (
-        <p className="ol-form-captcha-status" role="status" aria-live="polite">
-          Loading captcha challenge...
-        </p>
-      ) : null}
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        disabled={!submitEnabled}
-      >
-        SEND
-      </Button>
-    </>
+    <Button type="submit" variant="primary" size="lg" disabled={!submitEnabled}>
+      SEND
+    </Button>
   );
 }
