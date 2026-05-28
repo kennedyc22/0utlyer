@@ -1,9 +1,15 @@
 import NextImage from "next/image";
+import Script from "next/script";
 import { Container } from "../primitives/Container";
 import { BrandLockup } from "./BrandLockup";
 import { ContactIntroBlock } from "./ContactIntroBlock";
 import { ContactFormSuccess } from "./ContactFormSuccess";
 import { ContactSubmitButton } from "./ContactSubmitButton";
+
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ??
+  // Public Google test key; replace with real key via NEXT_PUBLIC_RECAPTCHA_SITE_KEY.
+  "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 type ContactAnchorProps = {
   /** Set when Netlify redirects back with ?contact=sent#contact after a successful POST */
@@ -110,7 +116,9 @@ function ContactFormFields({
             className="ol-form-recaptcha"
             data-netlify-recaptcha="true"
             aria-label="Spam protection challenge"
-          />
+          >
+            <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} />
+          </div>
           <ContactSubmitButton />
         </form>
       )}
@@ -157,6 +165,11 @@ export function ContactAnchor({
 
   return (
     <section id="contact" className={sectionClass} aria-label={ariaLabel}>
+      <Script
+        id="google-recaptcha-api"
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="afterInteractive"
+      />
       {showRibbon && !isSplit ? (
         <div className="ol-contact-ribbon" aria-hidden="true">
           <NextImage

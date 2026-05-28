@@ -4,17 +4,15 @@ import { useEffect, useState } from "react";
 import { Button } from "../primitives/Button";
 
 /**
- * Disables SEND until Netlify's reCAPTCHA challenge is completed when the
- * widget is present (production on Netlify). Local dev has no widget — submit
- * stays enabled so the form layout can still be tested.
+ * SEND is blocked until a captcha token exists.
  */
 export function ContactSubmitButton() {
-  const [submitEnabled, setSubmitEnabled] = useState(
-    process.env.NODE_ENV === "development",
-  );
+  const [submitEnabled, setSubmitEnabled] = useState(false);
 
   useEffect(() => {
-    const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+    const form = document.querySelector<HTMLFormElement>(
+      'form[name="contact"]',
+    );
     if (!form) return;
 
     const sync = () => {
@@ -22,7 +20,7 @@ export function ContactSubmitButton() {
         form.querySelector('iframe[src*="recaptcha"], .g-recaptcha'),
       );
       if (!hasWidget) {
-        setSubmitEnabled(process.env.NODE_ENV === "development");
+        setSubmitEnabled(false);
         return;
       }
       const response = form.querySelector<HTMLTextAreaElement>(
