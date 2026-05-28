@@ -71,7 +71,7 @@ export default async function ProductionServicesPage({
       </div>
       <ContactAnchor
         submitted={contactSubmitted}
-        redirectPath="/production-services?contact=sent#contact"
+        redirectPath="/thank-you"
         heading="Contact Us"
         ariaLabel="Contact us"
         showRibbon={false}

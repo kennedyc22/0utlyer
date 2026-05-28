@@ -50,7 +50,7 @@ export default async function TrainingRecruitmentPage({
       <TrainingImpactSplit />
       <ContactAnchor
         submitted={contactSubmitted}
-        redirectPath="/training-recruitment?contact=sent#contact"
+        redirectPath="/thank-you"
         heading={trainingSupportCta.heading}
         body={trainingSupportCta.body}
         ariaLabel="Support the mission"
