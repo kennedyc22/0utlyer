@@ -5,11 +5,11 @@ import { Image } from "@/components/primitives";
 describe("Image", () => {
   it("renders an img with required alt", () => {
     const { container } = render(
-      <Image src="/logo.avif" alt="Outlyer mark" aspectRatio="1:1" />,
+      <Image src="/logo.avif" alt="0UTLYER mark" aspectRatio="1:1" />,
     );
     const img = container.querySelector("img");
     expect(img).not.toBeNull();
-    expect(img?.getAttribute("alt")).toBe("Outlyer mark");
+    expect(img?.getAttribute("alt")).toBe("0UTLYER mark");
   });
 
   it.each(["1:1", "3:4", "4:3", "16:9", "21:9"] as const)(

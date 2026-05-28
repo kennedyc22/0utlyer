@@ -14,9 +14,9 @@ import {
 } from "../lib/seo/schema";
 import { founders } from "../content/founders";
 
-// Home: bypass the layout's "%s — OUTLYER" title template so the headline
-// reads as a single sentence rather than "OUTLYER — Inclusive… — OUTLYER".
-const HOME_TITLE = "OUTLYER | Inclusive Film & TV Production";
+// Home: bypass the layout's "%s — 0UTLYER" title template so the headline
+// reads as a single sentence rather than "0UTLYER — Inclusive… — 0UTLYER".
+const HOME_TITLE = "0UTLYER | Inclusive Film & TV Production";
 export const metadata: Metadata = {
   ...buildMetadata({
     title: HOME_TITLE,
@@ -40,7 +40,7 @@ export default async function Home({
       <JsonLd data={buildWebSite()} />
       <JsonLd
         data={buildWebPage({
-          name: "OUTLYER — Inclusive Film & TV Production",
+          name: "0UTLYER — Inclusive Film & TV Production",
           description: SITE_TAGLINE,
           path: "/",
         })}
@@ -51,7 +51,7 @@ export default async function Home({
       <HeroCarousel />
       <MissionBlock />
       <FoundersGrid />
-      <ContactAnchor submitted={contactSubmitted} />
+      <ContactAnchor submitted={contactSubmitted} layout="split" />
     </>
   );
 }

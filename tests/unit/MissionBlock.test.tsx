@@ -17,7 +17,7 @@ describe("MissionBlock", () => {
     for (const line of mission.stanza) {
       expect(screen.getByText(line)).toBeTruthy();
     }
-    const list = screen.getByLabelText("Who Outlyer is for");
+    const list = screen.getByLabelText("Who 0UTLYER is for");
     expect(list.querySelectorAll("li").length).toBe(mission.stanza.length);
   });
 

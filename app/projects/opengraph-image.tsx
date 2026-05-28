@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Projects — OUTLYER";
+export const alt = "Our Productions — 0UTLYER";
 
 export default async function Image() {
   return new ImageResponse(
@@ -29,10 +29,10 @@ export default async function Image() {
           marginBottom: 24,
         }}
       >
-        OUTLYER
+        0UTLYER
       </div>
       <div style={{ fontSize: 144, fontWeight: 700, lineHeight: 1 }}>
-        PROJECTS
+        OUR PRODUCTIONS
       </div>
       <div
         style={{
@@ -42,7 +42,7 @@ export default async function Image() {
           maxWidth: 900,
         }}
       >
-        The OUTLYER slate — film and television projects.
+        The 0UTLYER slate — film and television projects.
       </div>
     </div>,
     { ...size },

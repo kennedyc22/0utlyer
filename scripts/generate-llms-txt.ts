@@ -29,26 +29,28 @@ function lines(): string {
     )
     .join("\n");
 
-  return `# OUTLYER
+  return `# 0UTLYER
 
-> OUTLYER is a UK-based film and television production company founded by Coldplay's Chris Martin and Emmanuel Kelly. The company features differently-abled, neurodivergent, psychologically divergent, and primary-carer talent in front of the camera, off-screen, and on stage.
+> 0UTLYER is a UK-based film and television production company founded by Coldplay's Chris Martin and Emmanuel Kelly. The company features differently-abled, neurodivergent, psychologically divergent, and primary-carer talent in front of the camera, off-screen, and on stage.
 
 ## About
 
-OUTLYER is a full-service entertainment production company, committed to featuring outlyers in front of the camera, off-screen and on stage. The company was founded on the principle that if you are differently-abled, neuro or psychologically divergent, have an exclusory condition, or are a primary carer — you are an outlyer.
+0UTLYER is a full-service entertainment production company, committed to featuring 0UTLYERS in front of the camera, off-screen and on stage. The company was founded on the principle that if you are differently-abled, neuro or psychologically divergent, have an exclusory condition, or are a primary carer — you are an 0UTLYER.
 
 ## Founders
 
 ${founderBullets}
 
-## Projects
+## Our Productions
 
 ${projectBullets}
 
 ## Key Pages
 
 - [Home](${SITE_URL}/): brand and mission overview
-- [Projects](${SITE_URL}/projects): the full OUTLYER slate
+- [Production Services](${SITE_URL}/production-services): 0utLoud, 0utGun, and 0utRageous
+- [Training & Recruitment](${SITE_URL}/training-recruitment): 0utShine training and recruitment
+- [Our Productions](${SITE_URL}/projects): the full 0UTLYER slate
 - [Team](${SITE_URL}/team): full team and bios
 - [Partners](${SITE_URL}/partners): collaborators and aligned organisations
 - [Legacy](${SITE_URL}/legacy): The Kingdom of O — Cambridge partnership

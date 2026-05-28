@@ -57,7 +57,7 @@ export default function NotFound() {
               Back to home
             </Button>
             <NextLink href="/projects" className="ol-link-underline">
-              View projects
+              View our productions
             </NextLink>
           </div>
         </div>

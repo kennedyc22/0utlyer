@@ -42,7 +42,7 @@ export function Hero({ heading, sub }: HeroProps) {
           <div className="ol-hero-lockup">
             <NextImage
               src="/logo.avif"
-              alt="OUTLYER"
+              alt="0UTLYER"
               width={1200}
               height={500}
               priority

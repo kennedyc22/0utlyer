@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "../lib/seo/constants";
 
-// Phase 6: AI crawlers are explicitly allowed. OUTLYER wants AI engine
+// Phase 6: AI crawlers are explicitly allowed. 0UTLYER wants AI engine
 // visibility (GEO strategy, PRD §5) — opt-in signals consent and improves the
 // chance of accurate citation.
 export default function robots(): MetadataRoute.Robots {

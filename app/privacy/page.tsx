@@ -11,7 +11,7 @@ import { buildBreadcrumb, buildWebPage } from "../../lib/seo/schema";
 import { privacyBlocks, privacyFrontmatter } from "../../content/privacy";
 
 const PRIVACY_DESCRIPTION =
-  "How OUTLYER handles your data. UK GDPR-compliant privacy notice covering collection, use, retention, and your rights.";
+  "How 0UTLYER handles your data. UK GDPR-compliant privacy notice covering collection, use, retention, and your rights.";
 
 export const metadata: Metadata = buildMetadata({
   title: "Privacy",

@@ -22,7 +22,7 @@ export function MissionBlock() {
       </div>
       <div className="ol-mission-dark">
         <Container>
-          <ul className="ol-mission-stanza" aria-label="Who Outlyer is for">
+          <ul className="ol-mission-stanza" aria-label="Who 0UTLYER is for">
             {mission.stanza.map((line) => (
               <li key={line}>{line}</li>
             ))}

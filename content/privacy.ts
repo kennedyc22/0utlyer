@@ -11,7 +11,7 @@ export type PrivacyBlock =
 export const privacyFrontmatter = {
   title: "Privacy Policy",
   eyebrow: "Privacy",
-  lead: "How Outlyer Entertainment collects, uses and protects your personal data.",
+  lead: "How 0UTLYER Entertainment collects, uses and protects your personal data.",
   updated: "2026-05-15",
 };
 
@@ -20,7 +20,7 @@ export const privacyBlocks: PrivacyBlock[] = [
   {
     kind: "p",
     // TODO(legal): confirm registered legal entity name.
-    text: "Outlyer Entertainment is the data controller responsible for your personal data.",
+    text: "0UTLYER Entertainment is the data controller responsible for your personal data.",
   },
   {
     kind: "p",
@@ -89,13 +89,13 @@ export const privacyBlocks: PrivacyBlock[] = [
   { kind: "h2", text: "Cookies" },
   {
     kind: "p",
-    text: "This site does not set cookies and does not require a cookie banner under PECR.",
+    text: "This site does not set first-party analytics or marketing cookies. The home-page contact form includes Google reCAPTCHA (via Netlify) to reduce spam; Google may set cookies or use similar technologies when you interact with that challenge. See Google's privacy policy for details.",
   },
 
   { kind: "h2", text: "Sharing" },
   {
     kind: "p",
-    text: "We do not sell or share your personal data with third parties for marketing purposes. The contact form is delivered through Netlify Forms; submissions transit Netlify's infrastructure before reaching our inbox. See Netlify's privacy policy for their handling of that data.",
+    text: "We do not sell or share your personal data with third parties for marketing purposes. The contact form is delivered through Netlify Forms; submissions transit Netlify's infrastructure before reaching our inbox. Spam protection on that form may send data to Google (reCAPTCHA). See Netlify's and Google's privacy policies for their handling of that data.",
   },
 
   { kind: "h2", text: "Supervisory authority" },

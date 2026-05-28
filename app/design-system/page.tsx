@@ -23,7 +23,7 @@ import type {
 } from "@/components/primitives";
 
 export const metadata: Metadata = {
-  title: "Design System — Outlyer",
+  title: "Design System — 0UTLYER",
   description: "Internal review surface for Phase 2 primitives.",
   robots: { index: false, follow: false },
 };
@@ -37,21 +37,21 @@ interface Swatch {
 
 const SWATCHES: Swatch[] = [
   {
-    name: "Outlyer Red",
+    name: "0UTLYER Red",
     role: "Accent — punctuation, links, focus",
-    varName: "--color-outlyer-red",
+    varName: "--color-0UTLYER-red",
     contrastOnPaper: "~5.2:1 (AA body, AAA large)",
   },
   {
     name: "Red Dark",
     role: "Accent hover, pressed",
-    varName: "--color-outlyer-red-dark",
+    varName: "--color-0UTLYER-red-dark",
     contrastOnPaper: "~9.6:1",
   },
   {
     name: "Red Soft",
     role: "Sparingly — quiet accents on dark",
-    varName: "--color-outlyer-red-soft",
+    varName: "--color-0UTLYER-red-soft",
     contrastOnPaper: "~3.0:1 (large only)",
   },
   {
@@ -230,7 +230,7 @@ export default function DesignSystemPage() {
               </Text>
               {HEADING_TAGS.map((tag) => (
                 <Heading key={tag} as={tag}>
-                  {tag.toUpperCase()} — Outlyer
+                  {tag.toUpperCase()} — 0UTLYER
                 </Heading>
               ))}
             </div>
@@ -372,7 +372,7 @@ export default function DesignSystemPage() {
                     </Text>
                     <Image
                       src="/logo.avif"
-                      alt={`Outlyer mark at ${ar} aspect ratio`}
+                      alt={`0UTLYER mark at ${ar} aspect ratio`}
                       aspectRatio={ar}
                       sizes="(min-width: 1024px) 220px, 50vw"
                     />

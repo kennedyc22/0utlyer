@@ -3,7 +3,7 @@
 // generators.
 
 export const SITE_URL = "https://www.0utlyer.com";
-export const SITE_NAME = "OUTLYER";
+export const SITE_NAME = "0UTLYER";
 export const SITE_TAGLINE =
   "A Film and TV production company with a powerful Inclusion Mission.";
 
@@ -13,7 +13,7 @@ export const SITE_TAGLINE =
 // Mirrors content/mission.ts (lead + stanza + emphasis) collapsed to a single
 // quote-ready paragraph.
 export const BRAND_DESCRIPTION =
-  "OUTLYER is a full-service entertainment production company, committed to featuring OUTLYERS in front of the camera, off-screen and on stage. If you are differently-abled. If you are Neuro or Psychological Divergent. If you have an exclusory condition. If you are a primary carer… YOU ARE AN OUTLYER.";
+  "0UTLYER is a full-service entertainment production company, committed to featuring 0UTLYERS in front of the camera, off-screen and on stage. If you are differently-abled. If you are Neuro or Psychological Divergent. If you have an exclusory condition. If you are a primary carer… YOU ARE AN 0UTLYER.";
 
 // Default OG image path served by the dynamic generator at app/opengraph-image.tsx.
 // Next.js maps the file route to /opengraph-image at the relevant URL prefix.
@@ -26,7 +26,7 @@ export const TWITTER_HANDLE: string | null = null;
 // Public-facing brand profiles. Flows into Organization.sameAs (JSON-LD) for
 // entity disambiguation in search + GEO surfaces.
 export const SOCIAL_PROFILES: string[] = [
-  "https://www.instagram.com/outlyerofficial/",
+  "https://www.instagram.com/0UTLYERofficial/",
 ];
 
 // Locale used across OG + JSON-LD inLanguage fields. UK-based company.

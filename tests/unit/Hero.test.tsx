@@ -11,9 +11,9 @@ describe("Hero", () => {
     expect(screen.getByText("A subtitle")).toBeTruthy();
   });
 
-  it("renders the OUTLYER lockup image", () => {
+  it("renders the 0UTLYER lockup image", () => {
     render(<Hero heading="x" sub="y" />);
-    const img = screen.getByAltText("OUTLYER");
+    const img = screen.getByAltText("0UTLYER");
     expect(img).toBeTruthy();
   });
 });

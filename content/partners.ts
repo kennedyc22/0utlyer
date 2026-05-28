@@ -9,11 +9,12 @@ export type Partner = {
 
 export const partners: Partner[] = [
   {
-    name: "Garden Studios",
+    name: "Production Park",
     logo: {
-      src: "/partner-logos/garden-studios.avif",
-      alt: "Garden Studios — virtual production stage partner.",
+      src: "/partner-logos/Production Park.avif",
+      alt: "Production Park — where global tours are staged.",
     },
+    url: "https://www.productionpark.co.uk/",
   },
   {
     name: "Double Negative",
@@ -21,12 +22,14 @@ export const partners: Partner[] = [
       src: "/partner-logos/double-negative.avif",
       alt: "Double Negative — visual effects partner.",
     },
+    url: "https://www.dneg.com/",
   },
   {
-    name: "Netflix",
+    name: "Disney",
     logo: {
-      src: "/partner-logos/Netlfix.avif",
-      alt: "Netflix — distribution partner.",
+      src: "/partner-logos/Disney.avif",
+      alt: "Disney — distribution partner.",
     },
+    url: "https://www.disney.com/",
   },
 ];

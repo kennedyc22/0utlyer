@@ -7,16 +7,16 @@ export interface WordmarkProps {
   height?: number;
 }
 
-// /public/logo.avif is the full OUTLYER ribbon lockup. We pass generous
+// /public/logo.avif is the full 0UTLYER ribbon lockup. We pass generous
 // intrinsic dimensions so next/image doesn't resample below the rendered
 // size, and rely on CSS (height + width: auto + object-fit: contain) to
 // preserve the real aspect ratio at the display size.
 export function Wordmark({ href = "/", height = 32 }: WordmarkProps) {
   return (
-    <Link href={href} aria-label="Outlyer home" className="ol-wordmark">
+    <Link href={href} aria-label="0UTLYER home" className="ol-wordmark">
       <NextImage
         src="/logo.avif"
-        alt="OUTLYER"
+        alt="0UTLYER"
         width={600}
         height={240}
         priority

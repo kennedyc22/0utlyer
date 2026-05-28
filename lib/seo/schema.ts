@@ -46,7 +46,7 @@ export function buildOrganization(founders: Founder[]): JsonLdNode {
     "@type": "Organization",
     "@id": ORG_ID,
     name: SITE_NAME,
-    legalName: "OUTLYER Entertainment",
+    legalName: "0UTLYER Entertainment",
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",

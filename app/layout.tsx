@@ -23,8 +23,8 @@ import {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "OUTLYER | Inclusive Film & TV Production",
-    template: "%s | OUTLYER",
+    default: "0UTLYER | Inclusive Film & TV Production",
+    template: "%s | 0UTLYER",
   },
   description: SITE_TAGLINE,
   applicationName: SITE_NAME,
@@ -57,12 +57,12 @@ export const metadata: Metadata = {
     locale: SITE_LOCALE,
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "OUTLYER | Inclusive Film & TV Production",
+    title: "0UTLYER | Inclusive Film & TV Production",
     description: SITE_TAGLINE,
   },
   twitter: {
     card: "summary_large_image",
-    title: "OUTLYER | Inclusive Film & TV Production",
+    title: "0UTLYER | Inclusive Film & TV Production",
     description: SITE_TAGLINE,
   },
   manifest: "/manifest.webmanifest",

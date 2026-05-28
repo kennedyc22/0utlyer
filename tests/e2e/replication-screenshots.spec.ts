@@ -7,6 +7,11 @@ const targets = [
   { name: "projects", url: "/projects" },
   { name: "project-detail-dream-fever", url: "/projects/dream-fever" },
   { name: "team", url: "/team" },
+  { name: "production-services", url: "/production-services" },
+  {
+    name: "training-recruitment",
+    url: "/training-recruitment",
+  },
   { name: "partners", url: "/partners" },
   { name: "legacy", url: "/legacy" },
   { name: "privacy", url: "/privacy" },

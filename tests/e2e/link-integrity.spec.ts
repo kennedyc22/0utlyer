@@ -12,6 +12,8 @@ import { resolve } from "node:path";
 const ROUTES_TO_CRAWL = [
   "/",
   "/projects",
+  "/production-services",
+  "/training-recruitment",
   "/team",
   "/partners",
   "/legacy",

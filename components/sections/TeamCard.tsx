@@ -12,6 +12,11 @@ export function TeamCard({ member }: { member: TeamMember }) {
           width={400}
           height={400}
           sizes="200px"
+          style={
+            member.photo.objectPosition
+              ? { objectPosition: member.photo.objectPosition }
+              : undefined
+          }
         />
       </div>
       <h3 className="ol-team-name">{member.name}</h3>

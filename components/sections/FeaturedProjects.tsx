@@ -35,7 +35,7 @@ export function FeaturedProjects() {
     <Section bg="paper" padding="xl">
       <Container>
         <div style={headerStyle}>
-          <Eyebrow withDot>Featured Projects</Eyebrow>
+          <Eyebrow withDot>Featured Productions</Eyebrow>
           <Heading as="h2" size="display-2">
             Selected work.
           </Heading>
@@ -51,7 +51,7 @@ export function FeaturedProjects() {
             style={seeAllStyle}
             className="ol-link-underline"
           >
-            See all projects →
+            See all productions →
           </NextLink>
         </div>
       </Container>

@@ -9,10 +9,10 @@ import { projects } from "../../content/projects";
 import { SITE_URL } from "../../lib/seo/constants";
 
 const PROJECTS_DESCRIPTION =
-  "The OUTLYER slate. Film and television projects in development, production, and released — featuring outlyer talent in front of and behind the camera.";
+  "The 0UTLYER slate. Film and television projects in development, production, and released — featuring 0UTLYER talent in front of and behind the camera.";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Projects",
+  title: "Our Productions",
   description: PROJECTS_DESCRIPTION,
   path: "/projects",
 });
@@ -24,7 +24,7 @@ export default function ProjectsIndexPage() {
     <Section bg="paper" padding="xl">
       <JsonLd
         data={buildCollectionPage({
-          name: "Projects — OUTLYER",
+          name: "Our Productions — 0UTLYER",
           description: PROJECTS_DESCRIPTION,
           path: "/projects",
           items: sorted.map((p) => ({
@@ -37,11 +37,11 @@ export default function ProjectsIndexPage() {
       <JsonLd
         data={buildBreadcrumb([
           { name: "Home", path: "/" },
-          { name: "Projects", path: "/projects" },
+          { name: "Our Productions", path: "/projects" },
         ])}
       />
       <Container>
-        <h1 className="ol-page-title">PROJECTS</h1>
+        <h1 className="ol-page-title">OUR PRODUCTIONS</h1>
         <ul className="ol-projects-grid" data-count={sorted.length}>
           {sorted.map((project) => (
             <li key={project.slug} style={{ listStyle: "none" }}>

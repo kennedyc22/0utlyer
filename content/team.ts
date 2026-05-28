@@ -8,7 +8,7 @@ export type TeamMember = {
   name: string;
   role: string;
   bio: string;
-  photo: { src: string; alt: string };
+  photo: { src: string; alt: string; objectPosition?: string };
   links?: Array<{ label: string; href: string }>;
 };
 
@@ -23,8 +23,7 @@ export const founderTeamMembers: TeamMember[] = founders.map(
   }),
 );
 
-// The operating team. Order matches the /team layout reference (two rows
-// of two at desktop, then the remaining members below).
+// The operating team. Order matches /team desktop layout: 2, then 3, then 3.
 export const broaderTeam: TeamMember[] = [
   {
     name: "Chris Kennedy",
@@ -32,7 +31,7 @@ export const broaderTeam: TeamMember[] = [
     bio: "Chris is an entrepreneur and COO specialising in translating strategy into execution across startups, scaleups, and global organisations. He has led operational, financial, and delivery functions across both venture-backed businesses and investment banks.",
     photo: {
       src: "/headshots/Chris Kennedy.jpg",
-      alt: "Portrait of Chris Kennedy, COO of Outlyer.",
+      alt: "Portrait of Chris Kennedy, COO of 0UTLYER.",
     },
   },
   {
@@ -49,7 +48,7 @@ export const broaderTeam: TeamMember[] = [
     role: "Project Manager",
     bio: "",
     photo: {
-      src: "/headshots/Frances Knox.png",
+      src: "/headshots/Frances Knox v2.png",
       alt: "Portrait of Frances Knox, Project Manager",
     },
   },
@@ -96,6 +95,118 @@ export const broaderTeam: TeamMember[] = [
     photo: {
       src: "/headshots/Chris Curry.avif",
       alt: "Portrait of Chris Curry, Post Production Manager.",
+    },
+  },
+];
+
+export const outlyerCircle: TeamMember[] = [
+  {
+    name: "Richard Baker MP",
+    role: "Member of Parliament for Glenrothes and Mid Fife",
+    bio: "",
+    photo: {
+      src: "/headshots/Richard Baker.png",
+      alt: "Portrait of Richard Baker MP, Member of Parliament for Glenrothes and Mid Fife.",
+    },
+  },
+  {
+    name: "Lord Kevin Shinkwin",
+    role: "Member of the House of Lords",
+    bio: "",
+    photo: {
+      src: "/headshots/Lord Shinkwin.png",
+      alt: "Portrait of Lord Kevin Shinkwin, Member of the House of Lords.",
+    },
+  },
+  {
+    name: "Emily Marr",
+    role: "Senior Parliamentary Researcher",
+    bio: "",
+    photo: {
+      src: "/headshots/Emily Marr.png",
+      alt: "Portrait of Emily Marr, Senior Parliamentary Researcher.",
+      objectPosition: "50% 35%",
+    },
+  },
+  {
+    name: "Prof. Kim Hoque",
+    role: "Professor of Human Resource Management at King's Business School",
+    bio: "",
+    photo: {
+      src: "/headshots/Kim Hoque.png",
+      alt: "Portrait of Prof. Kim Hoque, Professor of Human Resource Management at King's Business School.",
+    },
+  },
+  {
+    name: "Sara Johnson",
+    role: "Pioneering Access Coordinator & Industry Creative",
+    bio: "",
+    photo: {
+      src: "/headshots/Sara Johnson.png",
+      alt: "Portrait of Sara Johnson, Pioneering Access Coordinator & Industry Creative",
+    },
+  },
+  {
+    name: "Julie Fernandez",
+    role: "Pioneering Access Coordinator / Film Maker & Actress",
+    bio: "",
+    photo: {
+      src: "/headshots/Julie Fernandez.png",
+      alt: "Portrait of Julie Fernandez, Pioneering Access Coordinator / Film Maker & Actress",
+    },
+  },
+  {
+    name: "David Forbes-Nixon OBE",
+    role: "Founder and Chairman of DFN Charitable Foundation",
+    bio: "",
+    photo: {
+      src: "/headshots/David Forbes-Nixon.png",
+      alt: "Portrait of David Forbes-Nixon OBE, Founder and Chairman of DFN Charitable Foundation",
+    },
+  },
+  {
+    name: "Katie Reay",
+    role: "Psychologist & Communication Coach",
+    bio: "",
+    photo: {
+      src: "/headshots/Katie Reay.png",
+      alt: "Portrait of Katie Reay, Psychologist & Communication Coach",
+    },
+  },
+  {
+    name: "Laurence Fishman FCA",
+    role: "Partner at NLP - THE accountant for trailblazers & game changers",
+    bio: "",
+    photo: {
+      src: "/headshots/Laurence Fishman.png",
+      alt: "Portrait of Laurence Fishman FCA, Partner at NLP - THE accountant for trailblazers & game changers",
+    },
+  },
+  {
+    name: "David King TEP",
+    role: "Partner at HCR Law - Head of Sport, Media, and Entertainment",
+    bio: "",
+    photo: {
+      src: "/headshots/David King.png",
+      alt: "Portrait of David King TEP, Partner at HCR Law - Head of Sport, Media, and Entertainment",
+    },
+  },
+  {
+    name: "Jon Geldart Hon DBA",
+    role: "Director General, Institute of Directors",
+    bio: "",
+    photo: {
+      src: "/headshots/Jon Geldart.png",
+      alt: "Portrait of Jon Geldart Hon DBA, Director General, Institute of Directors",
+    },
+  },
+  {
+    name: "Lee Brooks",
+    role: "Co-Founder & CEO of Production Park",
+    bio: "",
+    photo: {
+      src: "/headshots/Lee Brooks.png",
+      alt: "Lee Brooks, Co-Founder & CEO of Production Park",
     },
   },
 ];

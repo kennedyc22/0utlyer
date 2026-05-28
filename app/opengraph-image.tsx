@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "OUTLYER — Inclusive Film & TV Production";
+export const alt = "0UTLYER — Inclusive Film & TV Production";
 
 export default async function Image() {
   return new ImageResponse(
@@ -21,7 +21,7 @@ export default async function Image() {
       }}
     >
       <div style={{ fontSize: 128, fontWeight: 700, letterSpacing: -2 }}>
-        OUTLYER
+        0UTLYER
       </div>
       <div
         style={{

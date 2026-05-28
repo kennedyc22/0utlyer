@@ -27,7 +27,7 @@ describe("FeaturedProjects", () => {
 
   it("links to /projects from the see-all anchor", () => {
     render(<FeaturedProjects />);
-    const link = screen.getByRole("link", { name: /see all projects/i });
+    const link = screen.getByRole("link", { name: /see all productions/i });
     expect(link.getAttribute("href")).toBe("/projects");
   });
 });

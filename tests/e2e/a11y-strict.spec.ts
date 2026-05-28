@@ -20,6 +20,8 @@ const ROUTES = [
   "/projects",
   `/projects/${FIRST_PROJECT_SLUG}`,
   "/team",
+  "/production-services",
+  "/training-recruitment",
   "/partners",
   "/legacy",
   "/privacy",

@@ -3,7 +3,7 @@ import { getProjectBySlug, projects } from "../../../content/projects";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "OUTLYER project";
+export const alt = "0UTLYER project";
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -20,7 +20,7 @@ export default async function Image({
 }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  const title = project?.title ?? "OUTLYER";
+  const title = project?.title ?? "0UTLYER";
   const synopsis = project?.synopsis ?? "";
   const status = project?.status ?? "";
 
@@ -48,7 +48,7 @@ export default async function Image({
           alignItems: "center",
         }}
       >
-        OUTLYER {status ? `· ${status.toUpperCase()}` : ""}
+        0UTLYER {status ? `· ${status.toUpperCase()}` : ""}
       </div>
       <div
         style={{

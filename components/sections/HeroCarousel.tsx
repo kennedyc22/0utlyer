@@ -4,6 +4,7 @@ import NextImage from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BrandLockup } from "./BrandLockup";
 
 const SLIDE_COUNT = 3;
 const AUTOPLAY_MS = 6000;
@@ -37,30 +38,10 @@ export function HeroCarousel() {
         className="ol-slide ol-slide-brand"
         data-active={index === 0 || undefined}
         aria-hidden={index !== 0}
-        aria-label="OUTLYER — A Film and TV production company with a powerful Inclusion Mission"
+        aria-label="0UTLYER — A Film and TV production company with a powerful Inclusion Mission"
       >
-        <div className="ol-slide-brand-stack ol-anim-in">
-          <div className="ol-slide-brand-mark">
-            <NextImage
-              src="/icon.avif"
-              alt=""
-              width={360}
-              height={360}
-              priority
-              unoptimized
-            />
-          </div>
-          <div className="ol-slide-brand-lockup ol-anim-in-3">
-            <NextImage
-              src="/logo.avif"
-              alt="OUTLYER"
-              width={900}
-              height={380}
-            />
-            <span className="ol-slide-brand-tag">
-              ZERO BARRIERS CONNECTING WORLDS
-            </span>
-          </div>
+        <div className="ol-anim-in">
+          <BrandLockup priority />
         </div>
         <div className="ol-slide-brand-copy ol-anim-in">
           <h1 className="ol-slide-headline">
@@ -88,7 +69,7 @@ export function HeroCarousel() {
         >
           <NextImage
             src="/project-images/slippery-beast.avif"
-            alt="Slippery Beast — Outlyer feature project"
+            alt="Slippery Beast — 0UTLYER feature project"
             fill
             sizes="100vw"
             style={{ objectFit: "contain", objectPosition: "center" }}

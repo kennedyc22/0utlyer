@@ -49,7 +49,9 @@ test("hamburger button visible at 375 and opens the sheet", async ({
   await trigger.click();
   const sheet = page.locator("#ol-nav-sheet");
   await expect(sheet).toHaveAttribute("data-open", "true");
-  await expect(sheet.getByRole("link", { name: "Projects" })).toBeVisible();
+  await expect(
+    sheet.getByRole("link", { name: "Our Productions" }),
+  ).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(sheet).not.toHaveAttribute("data-open", "true");
 });

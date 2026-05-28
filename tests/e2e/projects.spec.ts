@@ -5,7 +5,7 @@ test("/projects renders 9 project cards", async ({ page }) => {
   const response = await page.goto("/projects");
   expect(response?.status()).toBe(200);
   await expect(
-    page.getByRole("heading", { level: 1, name: /^projects$/i }),
+    page.getByRole("heading", { level: 1, name: /^our productions$/i }),
   ).toBeVisible();
   const cards = page.locator("[data-slug]");
   await expect(cards).toHaveCount(9);
@@ -22,7 +22,9 @@ test("/projects card click navigates to detail page with required sections", asy
   await page.waitForURL(`**/projects/${slug}`);
 
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.getByRole("link", { name: /all projects/i })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /our productions/i }),
+  ).toBeVisible();
   // Eyebrow row contains year + status
   await expect(page.locator("text=In Development").first()).toBeVisible();
 });
@@ -47,6 +49,8 @@ for (const path of [
   "/projects",
   "/projects/dream-fever",
   "/team",
+  "/production-services",
+  "/training-recruitment",
   "/partners",
   "/legacy",
   "/privacy",

@@ -84,7 +84,7 @@ export default async function ProjectDetailPage({
       <JsonLd
         data={buildBreadcrumb([
           { name: "Home", path: "/" },
-          { name: "Projects", path: "/projects" },
+          { name: "Our Productions", path: "/projects" },
           { name: project.title, path: `/projects/${project.slug}` },
         ])}
       />
@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({
           style={backLinkStyle}
           className="ol-link-underline"
         >
-          ← All projects
+          ← Our productions
         </NextLink>
 
         <div style={heroWrapStyle} className="ol-project-hero">

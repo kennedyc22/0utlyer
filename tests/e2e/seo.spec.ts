@@ -18,12 +18,12 @@ const ROUTES: Array<{
 }> = [
   {
     path: "/",
-    expectedTitleSubstring: "OUTLYER",
+    expectedTitleSubstring: "0UTLYER",
     expectedJsonLdTypes: ["Organization", "WebSite", "WebPage", "Person"],
   },
   {
     path: "/projects",
-    expectedTitleSubstring: "Projects",
+    expectedTitleSubstring: "Our Productions",
     expectedJsonLdTypes: ["CollectionPage", "BreadcrumbList"],
   },
   {
@@ -35,6 +35,16 @@ const ROUTES: Array<{
     path: "/team",
     expectedTitleSubstring: "Team",
     expectedJsonLdTypes: ["Organization", "Person", "BreadcrumbList"],
+  },
+  {
+    path: "/production-services",
+    expectedTitleSubstring: "Production Services",
+    expectedJsonLdTypes: ["WebPage", "BreadcrumbList"],
+  },
+  {
+    path: "/training-recruitment",
+    expectedTitleSubstring: "Training & Recruitment",
+    expectedJsonLdTypes: ["WebPage", "BreadcrumbList"],
   },
   {
     path: "/partners",
@@ -136,6 +146,8 @@ test("seo: sitemap.xml lists every canonical route + project", async ({
   for (const p of [
     "/",
     "/projects",
+    "/production-services",
+    "/training-recruitment",
     "/team",
     "/partners",
     "/legacy",
@@ -160,24 +172,24 @@ test("seo: robots.txt allows root, lists sitemap, allows GPTBot", async ({
   expect(body).toMatch(/User-Agent:\s*\*/);
 });
 
-test("seo: /llms.txt is served with H1 OUTLYER as first line", async ({
+test("seo: /llms.txt is served with H1 0UTLYER as first line", async ({
   request,
 }) => {
   const res = await request.get(`${SITE_HOST}/llms.txt`);
   expect(res.status()).toBe(200);
   const body = await res.text();
-  expect(body.split(/\r?\n/)[0]).toBe("# OUTLYER");
+  expect(body.split(/\r?\n/)[0]).toBe("# 0UTLYER");
   expect(body).toContain("## Founders");
-  expect(body).toContain("## Projects");
+  expect(body).toContain("## Our Productions");
 });
 
-test("seo: /manifest.webmanifest served as JSON with name OUTLYER", async ({
+test("seo: /manifest.webmanifest served as JSON with name 0UTLYER", async ({
   request,
 }) => {
   const res = await request.get(`${SITE_HOST}/manifest.webmanifest`);
   expect(res.status()).toBe(200);
   const json = await res.json();
-  expect(json.name).toBe("OUTLYER");
+  expect(json.name).toBe("0UTLYER");
   expect(json.start_url).toBe("/");
 });
 

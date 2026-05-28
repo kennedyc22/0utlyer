@@ -18,6 +18,11 @@ const ROUTES: Array<{ path: string; name: string }> = [
     name: `project-${FIRST_PROJECT_SLUG}`,
   },
   { path: "/team", name: "team" },
+  { path: "/production-services", name: "production-services" },
+  {
+    path: "/training-recruitment",
+    name: "training-recruitment",
+  },
   { path: "/partners", name: "partners" },
   { path: "/legacy", name: "legacy" },
   { path: "/nonexistent-route", name: "404" },

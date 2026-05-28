@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Legacy — The Kingdom of O — OUTLYER";
+export const alt = "Legacy — The Kingdom of O — 0UTLYER";
 
 export default async function Image() {
   return new ImageResponse(
@@ -30,7 +30,7 @@ export default async function Image() {
           marginBottom: 24,
         }}
       >
-        OUTLYER · LEGACY
+        0UTLYER · LEGACY
       </div>
       <div style={{ fontSize: 120, fontWeight: 700, lineHeight: 1 }}>
         THE KINGDOM OF O
@@ -43,7 +43,7 @@ export default async function Image() {
           maxWidth: 900,
         }}
       >
-        A world-changing partnership between Cambridge University and OUTLYER.
+        A world-changing partnership between Cambridge University and 0UTLYER.
       </div>
     </div>,
     { ...size },

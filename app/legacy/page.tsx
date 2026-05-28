@@ -10,7 +10,7 @@ import { formatLegacyParagraph } from "../../lib/format-legacy-paragraph";
 // page references a February 2025 Cambridge symposium so a placeholder of
 // 2025-02-01 would be reasonable, but leave undefined until confirmed.
 const LEGACY_DESCRIPTION =
-  "The story behind OUTLYER. The Kingdom of O — a world-changing partnership between Cambridge University and OUTLYER to build the first fully accessible and sustainable experience park.";
+  "The story behind 0UTLYER. The Kingdom of O — a world-changing partnership between Cambridge University and 0UTLYER to build the first fully accessible and sustainable experience park.";
 
 export const metadata: Metadata = buildMetadata({
   title: "Legacy — The Kingdom of O",
@@ -79,7 +79,7 @@ export default function LegacyPage() {
           />
         </div>
         <figcaption className="ol-legacy-figure-caption">
-          A world-changing partnership between Cambridge University and OUTLYER
+          A world-changing partnership between Cambridge University and 0UTLYER
         </figcaption>
       </figure>
 
@@ -89,7 +89,7 @@ export default function LegacyPage() {
         ))}
         <p className="ol-legacy-cta">
           <NextLink href="/projects" className="ol-link-underline">
-            Explore the OUTLYER slate →
+            Explore the 0UTLYER slate →
           </NextLink>
         </p>
       </section>

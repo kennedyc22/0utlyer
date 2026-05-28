@@ -40,6 +40,16 @@ const ROUTES: Array<{
     filename: "team",
   },
   {
+    path: "/production-services",
+    expectedTypes: ["WebPage", "BreadcrumbList"],
+    filename: "production-services",
+  },
+  {
+    path: "/training-recruitment",
+    expectedTypes: ["WebPage", "BreadcrumbList"],
+    filename: "training-recruitment",
+  },
+  {
     path: "/partners",
     expectedTypes: ["WebPage", "BreadcrumbList"],
     filename: "partners",

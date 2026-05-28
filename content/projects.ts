@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     slug: "dream-fever",
     title: "Dream Fever",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "An emotionally charged documentary on the journey of Emmanuel Kelly.",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     slug: "crewel-work",
     title: "Crewel Work",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis: "An Elizabethan murder mystery with an interactive twist.",
     description:
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   {
     slug: "wolf-who-chased-the-sun",
     title: "Wolf Who Chased The Sun",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "A turn-of-the-century duel between an outlaw wolf and a solitary hunter.",
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   {
     slug: "slippery-beast",
     title: "Slippery Beast",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis: "A classic whodunnit told in a highly innovative way.",
     description:
@@ -82,7 +82,7 @@ export const projects: Project[] = [
   {
     slug: "game-of-hearts",
     title: "Game of Hearts",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "A modern re-imagining of the hugely popular opera Cosi Fan Tutte.",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
   {
     slug: "the-widow-man",
     title: "The Widow Man",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "A widow accepts the sheriff’s badge — and the man who keeps her alive.",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
   {
     slug: "mission-creep",
     title: "Mission Creep",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "An elite marine unit’s retrieval mission collides with something darker.",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
   {
     slug: "an-orc-in-new-york",
     title: "An Orc In New York",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "A fresh take on a timeless tale — when we seek to save another, we often save ourselves.",
@@ -146,7 +146,7 @@ export const projects: Project[] = [
   {
     slug: "something-blue",
     title: "Something Blue",
-    year: 2025,
+    year: 2026,
     status: "In Development",
     synopsis:
       "Murder demands the same precious attention to detail as your wedding day.",

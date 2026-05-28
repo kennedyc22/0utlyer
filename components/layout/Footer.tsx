@@ -14,13 +14,24 @@ export function Footer() {
           <ul className="ol-footer-nav" aria-label="Footer">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="ol-nav-link"
-                  prefetch={HEAVY_ROUTES.has(l.href) ? false : undefined}
-                >
-                  {l.label}
-                </Link>
+                {l.external ? (
+                  <a
+                    href={l.href}
+                    className="ol-nav-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={l.href}
+                    className="ol-nav-link"
+                    prefetch={HEAVY_ROUTES.has(l.href) ? false : undefined}
+                  >
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -33,7 +44,7 @@ export function Footer() {
               color: "var(--color-white)",
             }}
           >
-            All rights reserved Ø Outlyer 2026
+            All rights reserved Ø 0UTLYER 2026
           </p>
           <p style={{ margin: 0 }}>
             <Link
