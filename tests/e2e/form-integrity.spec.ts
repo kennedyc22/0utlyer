@@ -9,7 +9,8 @@
 //   field receives focus.
 //
 // The Netlify POST itself isn't exercised in CI (requires a Netlify deploy);
-// we assert the form carries Netlify attributes and expected redirect target.
+// we assert the form POSTs to the static /forms.html endpoint and carries
+// a redirect field for the post-submit thank-you page.
 
 import { expect, test } from "@playwright/test";
 
@@ -22,7 +23,9 @@ test("form-integrity: server-rendered Netlify form is present in home HTML", asy
   expect(html).toContain('data-netlify="true"');
   expect(html).toContain('name="form-name"');
   expect(html).toContain('value="contact"');
-  expect(html).toContain('action="/thank-you"');
+  expect(html).toContain('action="/forms.html"');
+  expect(html).toContain('name="redirect"');
+  expect(html).toContain('value="/thank-you"');
 });
 
 test("form-integrity: success acknowledgement after Netlify redirect param", async ({
