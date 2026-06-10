@@ -81,16 +81,6 @@ export const broaderTeam: TeamMember[] = [
     },
   },
   {
-    name: "Emily Marr",
-    role: "Senior Parliamentary Researcher & Government Liaison",
-    bio: "",
-    photo: {
-      src: "/headshots/Emily Marr.png",
-      alt: "Portrait of Emily Marr, Senior Parliamentary Researcher & Government Liaison.",
-      objectPosition: "50% 35%",
-    },
-  },
-  {
     name: "Katie Reay",
     role: "Psychologist & Communication Coach",
     bio: "",
@@ -120,24 +110,6 @@ export const broaderTeam: TeamMember[] = [
 ];
 
 export const outlyerCircle: TeamMember[] = [
-  {
-    name: "Richard Baker MP",
-    role: "Member of Parliament for Glenrothes and Mid Fife",
-    bio: "",
-    photo: {
-      src: "/headshots/Richard Baker.png",
-      alt: "Portrait of Richard Baker MP, Member of Parliament for Glenrothes and Mid Fife.",
-    },
-  },
-  {
-    name: "Lord Kevin Shinkwin",
-    role: "Member of the House of Lords",
-    bio: "",
-    photo: {
-      src: "/headshots/Lord Shinkwin.png",
-      alt: "Portrait of Lord Kevin Shinkwin, Member of the House of Lords.",
-    },
-  },
   {
     name: "Lee Brooks",
     role: "Co-Founder & CEO of Production Park",
